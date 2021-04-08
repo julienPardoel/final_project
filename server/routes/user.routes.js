@@ -9,6 +9,7 @@ const userController = require('../controllers/user.controller');
 
 // authentification
 router.post('/register', authController.signUp);
+router.post('/login', authController.signIn);
 
 // gestion profil utilisateur
 router.get('/', userController.getAllUsers);
