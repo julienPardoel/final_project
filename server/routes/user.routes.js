@@ -12,6 +12,7 @@ router.post('/register', authController.signUp);
 
 // gestion profil user
 router.get('/', userController.getAllUsers);
+router.get('/:id', userController.userInfo);
 
 //! Export du module router a réutiliser dans le index.js pour associer les routes avec un router.
 module.exports = router;
