@@ -1,8 +1,8 @@
 // on importe le modele utilisateur
 const UserModel = require("../models/user.model");
 
-// 
-const ObjectId = require('mongoose').Types.ObjectId;
+//
+const ObjectId = require("mongoose").Types.ObjectId;
 
 // on exporte la vue de tout les utilisateurs
 module.exports.getAllUsers = async (req, res) => {
@@ -12,8 +12,6 @@ module.exports.getAllUsers = async (req, res) => {
 
 // on exporte la vue d'un seul utilisateur
 module.exports.userInfo = async (req, res) => {
-  // console.log(req.params);
-
   // si l'id est inconnu dans la db on retourne une erreur
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send("ID unknow : " + req.params.id);
@@ -23,4 +21,21 @@ module.exports.userInfo = async (req, res) => {
     if (!err) res.send(docs);
     else console.log("ID unknow : " + err);
   }).select("-password");
+};
+
+// on exporte la fonction supprimer l'utilisateur
+module.exports.deleteUser = async (req, res) => {
+  // si l'id est inconnu dans la db on retourne une erreur
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  // si l'id est connu on supprime l'utilisateur
+  try {
+    await UserModel.remove(
+      { _id: req.params.id },
+      res.status(200).json({ message: "succesfully deleted" })
+    );
+  } catch (err) {
+    return res.status(500).json({ message: err });
+  }
 };
