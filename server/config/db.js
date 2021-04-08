@@ -9,7 +9,7 @@ require('dotenv').config({ path: './config/.env' });
 mongoose.connect(
     "mongodb+srv://" +
       process.env.DB_USER_PASS +
-      "@cluster0.tfs3m.mongodb.net/test",
+      "@cluster0.tfs3m.mongodb.net/final-project",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
