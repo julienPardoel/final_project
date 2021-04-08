@@ -70,5 +70,4 @@ module.exports.logOut = (req, res) => {
   res.send({
     message: "Successfully logged out",
   });
-
 };
