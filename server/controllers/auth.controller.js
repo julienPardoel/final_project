@@ -2,10 +2,10 @@
 const bcrypt = require("bcryptjs");
 
 // dépendance servant à créer et utiliser des tokens
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 // on importe les variables d'environnement stockées dans le fichier .env
-require('dotenv').config({ path: './config/.env' });
+require("dotenv").config({ path: "./config/.env" });
 
 // on importe le modele prédéfini
 const UserModel = require("../models/user.model");
@@ -62,4 +62,13 @@ module.exports.signIn = async (req, res) => {
   res.send({
     message: "Authentification réussie",
   });
+};
+
+// on exporte vers la route methode post à l'url /logout pour la déconnection
+module.exports.logOut = (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.send({
+    message: "Successfully logged out",
+  });
+
 };
