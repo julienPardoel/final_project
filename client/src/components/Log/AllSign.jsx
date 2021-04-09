@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-const Log = ( props ) => {
-  const [signUpModal, setSignUpModal] = useState(props.signup);
-  const [signInModal, setSignInModal] = useState(props.signin);
+const Log = () => {
+  const [signUpModal, setSignUpModal] = useState();
+  const [signInModal, setSignInModal] = useState();
 
   const handleModals = (e) => {
     if (e.target.id === "register") {
