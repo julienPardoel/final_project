@@ -1,6 +1,8 @@
 import React from "react";
 
 const Gateway = () => {
+  
+  // fonction pour créer des coeurs animés
   function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");

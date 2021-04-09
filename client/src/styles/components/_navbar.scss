@@ -1,0 +1,24 @@
+nav {
+  position: fixed;
+  width: 100%;
+  
+
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 100px;
+
+    img{
+        height: 100%;
+    }
+
+    input {
+        width: 30vw;
+        border-radius: 5px;
+        padding: 5px;
+    }
+  }
+}

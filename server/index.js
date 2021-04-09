@@ -1,11 +1,13 @@
+// on importe les variables d'environnement stockées dans le fichier .env
+require('dotenv').config({ path: './config/.env' });
+
 // express : framework qui fournit des fonctionnalités
 const express = require("express");
 
 // on importe la route de l'utilisateur
 const userRoutes = require('./routes/user.routes');
 
-// on importe les variables d'environnement stockées dans le fichier .env
-require('dotenv').config({ path: './config/.env' });
+
 
 // on importe la db
 require('./config/db');

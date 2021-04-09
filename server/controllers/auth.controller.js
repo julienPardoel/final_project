@@ -4,9 +4,6 @@ const bcrypt = require("bcryptjs");
 // dépendance servant à créer et utiliser des tokens
 const jwt = require("jsonwebtoken");
 
-// on importe les variables d'environnement stockées dans le fichier .env
-require("dotenv").config({ path: "./config/.env" });
-
 // on importe le modele prédéfini
 const UserModel = require("../models/user.model");
 
