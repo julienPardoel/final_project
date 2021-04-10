@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UidContext } from "../AppContext";
-import Log from "./Log/AllSign";
+import AllSign from "./Log/AllSign";
 
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
             </div>
         ) : (
             <div>
-                <Log/>
+                <AllSign/>
             </div>
         )}
       </div>

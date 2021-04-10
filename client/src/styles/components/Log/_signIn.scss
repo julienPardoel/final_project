@@ -1,6 +1,39 @@
 .signin {
     position: fixed;
     background-color: black;
-    top: 500px;
-    color: red;
+    top: 0;
+    color: $color-blue;
+    font-family: $font-bold;
+    right: 0;
+    height: 100%;
+    margin: 100px 0 40px 0;
+    width: 20vw;
+    animation: 0.2s linear 0s slide_menu ;
+
+    form {
+        text-align: center;
+        width: 60%;
+        transform: translateY(-200px);
+
+
+        label {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .btn {
+            background-color: $color-blue;
+            color: $color-grey;
+            box-shadow: $color-pink 0 2px 10px;
+            font-family: $font-regular;
+            cursor: pointer;
+        }
+            
+        
+    }
 }
+
+@keyframes slide_menu { from {transform: translateX(100%) ; } to {transform: translateX(0%); } }

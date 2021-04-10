@@ -1,0 +1,19 @@
+.all-sign-container {
+  width: 20vw;
+  
+  
+  .all-sign-list {
+    width: 100%;
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      list-style-type: none;
+      color: $color-blue;
+      font-family: $font-bold;
+      li {
+          cursor: pointer;
+      }
+    }
+  }
+}

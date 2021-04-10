@@ -17,8 +17,8 @@ const Log = () => {
   };
 
   return (
-    <div className="connection-form">
-      <div className="form-container">
+    <div className="all-sign-container">
+      <div className="all-sign-list">
         <ul>
           <li
             onClick={handleModals}

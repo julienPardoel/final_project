@@ -1,3 +1,15 @@
+// polices d'écriture
+@font-face {
+  font-family: 'exo-bold';
+  src: url(./fonts/Exo-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'exo-regular';
+  src: url(./fonts/Exo-Regular.ttf);
+}
+
+// reglages generaux
 * {
   box-sizing: border-box;
   margin: 0;

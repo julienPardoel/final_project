@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 // on importe les variables d'environnement stockées dans le fichier .env
-require('dotenv').config({ path: '.../env' });
+require("dotenv").config({ path: ".../env" });
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -34,6 +34,7 @@ const SignIn = () => {
       });
   };
 
+ 
   return (
     <div className="signin">
       <form action="" onSubmit={handleLogin}>
@@ -62,7 +63,7 @@ const SignIn = () => {
         <div className="password error"></div>
         <br />
         {/* envoyer */}
-        <input type="submit" value="Se connecter" />
+        <input className="btn" type="submit" value="Se connecter" />
       </form>
     </div>
   );
