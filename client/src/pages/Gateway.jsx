@@ -19,13 +19,13 @@ const Gateway = () => {
     }, 5000);
   }
 
-  setInterval(createHeart, 9999);
+  setInterval(createHeart, 1500);
 
   return (
     <div className="gateway">
       {createHeart}
       <img src="../img/logo.png" alt="" />
-      <a href="">Accéder au site</a>
+      <a href="http://localhost:3000/home">Accéder au site</a>
     </div>
   );
 };

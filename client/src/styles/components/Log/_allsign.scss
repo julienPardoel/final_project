@@ -4,15 +4,18 @@
   
   .all-sign-list {
     width: 100%;
-    ul {
+    >ul {
       width: 100%;
       display: flex;
       justify-content: space-around;
       list-style-type: none;
       color: $color-blue;
       font-family: $font-bold;
-      li {
+      >li {
           cursor: pointer;
+      }
+      .active-btn{
+        text-decoration: underline;
       }
     }
   }

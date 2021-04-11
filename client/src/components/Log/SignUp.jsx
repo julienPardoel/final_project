@@ -47,8 +47,8 @@ const SignUp = () => {
             pseudoError.innerHTML = res.data.errors.pseudo;
             emailError.innerHTML = res.data.errors.email;
             passwordError.innerHTML = res.data.errors.password;
-                      } else {
-                        setFormSubmit(true);
+          } else {
+            setFormSubmit(true);
           }
         })
         .catch((err) => console.log(err));
@@ -63,14 +63,12 @@ const SignUp = () => {
           <span></span>
           <h4 className="success">
             Enregistrement réussi, veuillez-vous connecter
-              </h4>
+          </h4>
         </>
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
-
           {/* pseudo */}
           <label htmlFor="pseudo">Pseudo</label>
-          <br />
           <input
             type="text"
             name="pseudo"
@@ -78,12 +76,10 @@ const SignUp = () => {
             onChange={(e) => setPseudo(e.target.value)}
             value={pseudo}
           />
-          {/* <div className="pseudo error"></div> */}
-          <br />
+          <div className="pseudo error"></div>
 
           {/* email */}
           <label htmlFor="email">Email</label>
-          <br />
           <input
             type="text"
             name="email"
@@ -91,12 +87,10 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          {/* <div className="email error"></div> */}
-          <br />
+          <div className="email error"></div>
 
           {/* password */}
           <label htmlFor="password">Mot de passe</label>
-          <br />
           <input
             type="password"
             name="password"
@@ -104,12 +98,10 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          {/* <div className="password error"></div> */}
-          <br />
+          <div className="password error"></div>
 
           {/* password confirmation */}
           <label htmlFor="password-conf">Confirmer mot de passe</label>
-          <br />
           <input
             type="password"
             name="password"
@@ -117,21 +109,19 @@ const SignUp = () => {
             onChange={(e) => setControlPassword(e.target.value)}
             value={controlPassword}
           />
-          {/* <div className="password-confirm error"></div> */}
-          <br />
+          <div className="password-confirm error"></div>
 
           {/* CGU checkbox */}
           <input type="checkbox" id="terms" />
           <label htmlFor="terms">
             J'accepte les{" "}
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            <a href="" target="_blank" rel="noopener noreferrer">
               conditions générales
             </a>
           </label>
 
           {/* erreur si pas coché */}
-          {/* <div className="terms error"></div> */}
-          <br />
+          <div className="terms error"></div>
 
           {/* valider inscription */}
           <input className="btn" type="submit" value="Valider inscription" />

@@ -34,13 +34,11 @@ const SignIn = () => {
       });
   };
 
- 
   return (
     <div className="signin">
       <form action="" onSubmit={handleLogin}>
         {/* email */}
         <label htmlFor="email">Email</label>
-        <br />
         <input
           type="text"
           name="email"
@@ -48,11 +46,10 @@ const SignIn = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        {/* <div className="email error"></div> */}
-        <br />
+        <div className="email error"></div>
+
         {/* password */}
         <label htmlFor="password">Mot de passe</label>
-        <br />
         <input
           type="password"
           name="password"
@@ -60,8 +57,8 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        {/* <div className="password error"></div> */}
-        <br />
+        <div className="password error"></div>
+
         {/* envoyer */}
         <input className="btn" type="submit" value="Se connecter" />
       </form>
