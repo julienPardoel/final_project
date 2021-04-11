@@ -12,8 +12,12 @@ require('./config/db');
 
 const cors = require('cors');
 
+const cookieParser = require('cookie-parser');
+
 // on defini que la variable app utilisera express
 const app = express();
+
+app.use(cookieParser());
 
 const corsOptions = {
   origin: process.env.CLIENT_URL,

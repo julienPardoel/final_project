@@ -22,7 +22,7 @@ const Logout = () => {
   };
 
   return (
-    <div className="logout">
+    <div onClick={logout} className="logout">
         <i class="fas fa-sign-out-alt"></i>
     </div>
   );

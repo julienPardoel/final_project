@@ -11,12 +11,12 @@ const userController = require('../controllers/user.controller');
 router.post('/register', authController.signUp);
 router.post('/login', authController.signIn);
 router.get('/logout', authController.logOut);
+router.get('/', authController.getUser);
 
 // gestion profil utilisateur
-router.get('/', userController.getAllUsers);
-router.get('/:id', userController.userInfo);
-router.put('/:id', userController.updatePseudo);
-router.delete('/:id', userController.deleteUser);
+// router.get('/:id', userController.userInfo);
+// router.put('/:id', userController.updatePseudo);
+// router.delete('/:id', userController.deleteUser);
 
 //! Export du module router a réutiliser dans le index.js pour associer les routes avec un router.
 module.exports = router;
