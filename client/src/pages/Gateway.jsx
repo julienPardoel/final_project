@@ -19,7 +19,7 @@ const Gateway = () => {
     }, 5000);
   }
 
-  setInterval(createHeart, 1500);
+  setInterval(createHeart, 9999);
 
   return (
     <div className="gateway">

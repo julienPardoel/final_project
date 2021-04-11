@@ -48,7 +48,7 @@ const SignIn = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <div className="email error"></div>
+        {/* <div className="email error"></div> */}
         <br />
         {/* password */}
         <label htmlFor="password">Mot de passe</label>
@@ -60,7 +60,7 @@ const SignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <div className="password error"></div>
+        {/* <div className="password error"></div> */}
         <br />
         {/* envoyer */}
         <input className="btn" type="submit" value="Se connecter" />
