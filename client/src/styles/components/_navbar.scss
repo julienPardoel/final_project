@@ -19,5 +19,15 @@
         border-radius: 5px;
         padding: 5px;
     }
+
+    >.nav-bar-welcome {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: $font-bold;
+      color: $color-blue;
+      text-shadow: $color-grey 1px -1px 1px;
+      width: 20vw;
+    }
   }
 }

@@ -23,7 +23,7 @@ const Logout = () => {
 
   return (
     <div className="logout">
-        <img onClick={logout} src="../img/logout.svg" alt=""/>
+        <i class="fas fa-sign-out-alt"></i>
     </div>
   );
 };

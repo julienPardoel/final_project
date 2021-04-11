@@ -15,7 +15,7 @@ const Navbar = () => {
         <input type="text" placeholder="Rechercher..."></input>
 
         {uid ? (
-            <div>
+            <div className="nav-bar-welcome">
                 <h2>Bienvenue User</h2>
                 <LogOut/>
             </div>

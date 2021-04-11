@@ -11,11 +11,13 @@
       list-style-type: none;
       color: $color-blue;
       font-family: $font-bold;
+      font-size: 1.5em;
+      text-shadow: $color-grey 1px -1px 1px;
       >li {
           cursor: pointer;
       }
       .active-btn{
-        text-decoration: underline;
+        text-decoration: underline 3px;
       }
     }
   }

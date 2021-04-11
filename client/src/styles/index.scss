@@ -1,8 +1,9 @@
-@import './settings.scss';
-@import './vars.scss';
-@import './pages/gateway.scss';
-@import './components/navbar.scss';
-@import './components/footer.scss';
-@import './components/Log/allsign.scss';
-@import './components/Log/signIn.scss';
+@import './settings';
+@import './vars';
+@import './pages/gateway';
+@import './components/navbar';
+@import './components/footer';
+@import './components/Log/allsign';
+@import './components/Log/signIn';
 @import './components/Log/signUp';
+@import './components/Log/logout'
