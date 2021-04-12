@@ -22,14 +22,16 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      max: 1024,
+      minlength: 6,
     },
     picture: {
-        type: String,
-        default: "./uploads/profil/random-user.png"
+      type: String,
+      default: "./uploads/profil/random-user.png",
     },
     likes: {
-        type: [String]
-    }
+      type: [String],
+    },
   },
   {
     timestamps: true,
