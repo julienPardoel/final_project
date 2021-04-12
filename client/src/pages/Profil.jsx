@@ -20,13 +20,20 @@ const Profil = () => {
   };
 
   return (
-    <div>
+    <div className="profil">
       <Navbar />
       <div className="profil-container">
+        {/* pseudo */}
+        <p>Bienvenue sur votre profil</p>
+        <h2 className="profil-pseudo">{userData.pseudo}</h2>
         {/* image */}
-        <img src={userData.picture} alt="" />
-        <form action="" onSubmit={handlePicture} className="upload-pic">
-          <label htmlFor="file">Changer d'image</label>
+        <img className="profil-picture" src={userData.picture} alt="" />
+        <form
+          action=""
+          onSubmit={handlePicture}
+          className="profil-picture-upload"
+        >
+          <label htmlFor="file">Changer votre photo de profil</label>
           <input
             type="file"
             id="file"
@@ -34,13 +41,8 @@ const Profil = () => {
             accept=".jpg, .jpeg, .png"
             onChange={(e) => setFile(e.target.files[0])}
           />
-          <br />
-          <input type="submit" value="Envoyer" />
+          <input className="btn-send" type="submit" value="Envoyer" />
         </form>
-        {/* pseudo */}
-        <h2>{userData.pseudo}</h2>
-        {/* email */}
-        <h2>{userData.email}</h2>
       </div>
       <Footer />
     </div>

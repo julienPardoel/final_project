@@ -1,0 +1,47 @@
+.profil {
+  .profil-container {
+    background-color: $color-grey;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-family: $font-bold;
+        font-size: 1.5em;
+        color: $color-blue;
+    }
+    .profil-pseudo {
+        font-family: $font-bold;
+        font-size: 3em;
+        color: $color-blue;
+    }
+    .profil-picture {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: solid 5px $color_blue;
+    }
+    .profil-picture-upload {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 10vh;
+      margin-top: 100px;
+      label {
+        font-family: $font-bold;
+        color: $color-blue;
+      }
+      .btn-send {
+        background-color: $color-blue;
+        color: $color-grey;
+        box-shadow: $color-pink 0 2px 10px;
+        font-family: $font-regular;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
+}
