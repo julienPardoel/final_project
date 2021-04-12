@@ -10,24 +10,35 @@
     color: white;
     height: 100px;
 
-    >img{
-        height: 100%;
+    > img {
+      height: 100%;
     }
 
-    >input {
-        width: 30vw;
-        border-radius: 5px;
-        padding: 5px;
+    > input {
+      width: 30vw;
+      border-radius: 5px;
+      padding: 5px;
     }
 
-    >.nav-bar-welcome {
+    > .nav-bar-welcome {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-family: $font-bold;
       color: $color-blue;
       text-shadow: $color-grey 1px -1px 1px;
-      width: 20vw;
+      width: 25vw;
+      > a {
+        > img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: solid 3px $color-blue;
+        }
+        > img:hover {
+          border: solid 3px $color-pink;
+        }
+      }
     }
   }
 }

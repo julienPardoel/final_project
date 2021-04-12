@@ -18,8 +18,9 @@ const Navbar = () => {
 
         {uid ? (
           <div className="nav-bar-welcome">
+            <h2>Bienvenue {userData.pseudo} </h2>
             <NavLink exact to="/profil">
-              <h2>Bienvenue {userData.pseudo}</h2>
+              <img src={userData.picture} alt="" />
             </NavLink>
 
             <LogOut />
