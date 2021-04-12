@@ -16,6 +16,7 @@
         font-family: $font-bold;
         font-size: 3em;
         color: $color-blue;
+        text-shadow: $color-pink 1px 1px 1px;
     }
     .profil-picture {
       width: 300px;
@@ -42,6 +43,16 @@
         cursor: pointer;
         width: 100%;
       }
+    }
+    .back-to-home{
+        font-size: 3em;
+        margin-top: 50px;
+        color: $color-blue;
+        text-shadow: $color-pink 1px 1px 1px;
+    }
+    .back-to-home:hover {
+        color: $color-pink;
+        cursor: pointer;
     }
   }
 }

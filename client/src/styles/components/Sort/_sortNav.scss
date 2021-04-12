@@ -1,0 +1,40 @@
+#sort-nav {
+  position: fixed;
+  background-color: black;
+  top: 100px;
+  left: 0;
+  bottom: 40px;
+  color: $color-blue;
+  font-family: $font-bold;
+  width: 15%;
+  animation: 0.3s linear 0s slide_sort;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 20px;
+  .sort-choice-container {
+      display: flex;
+      flex-direction: column;
+      h2 {
+          margin-bottom: 10px;
+      }
+      .sort-choice {
+          display: flex;
+          flex-direction: column;
+          label {
+              left: 50px;
+              input {
+                  margin-right: 5px;
+              }
+          }
+      }
+  }
+}
+@keyframes slide_sort {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }

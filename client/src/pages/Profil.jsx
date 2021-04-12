@@ -43,7 +43,9 @@ const Profil = () => {
           />
           <input className="btn-send" type="submit" value="Envoyer" />
         </form>
+        <a className="back-to-home" href="/home"><i class="fas fa-home"></i></a>
       </div>
+      
       <Footer />
     </div>
   );

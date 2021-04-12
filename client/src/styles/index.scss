@@ -1,5 +1,6 @@
 @import './settings';
 @import './vars';
+@import './pages/home';
 @import './pages/gateway';
 @import './pages/profil';
 @import './components/navbar';
@@ -7,4 +8,5 @@
 @import './components/Log/allsign';
 @import './components/Log/signIn';
 @import './components/Log/signUp';
-@import './components/Log/logout'
+@import './components/Log/logout';
+@import './components/Sort/sortNav'

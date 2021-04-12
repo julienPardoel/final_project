@@ -16,6 +16,9 @@
       >li {
           cursor: pointer;
       }
+      >li:hover{
+        color: $color-pink;
+      }
       .active-btn{
         text-decoration: underline 3px;
       }
