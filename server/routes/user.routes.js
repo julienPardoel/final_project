@@ -5,7 +5,13 @@ const router = require('express').Router();
 const authController = require('../controllers/auth.controller');
 
 // on importe le fichier qui controlle la gestion du profil user
-const userController = require('../controllers/user.controller');
+// const userController = require('../controllers/user.controller');
+
+const uploadController = require('../controllers/upload.controller');
+
+// upload image
+const multer = require("multer");
+const upload = multer();
 
 // authentification
 router.post('/register', authController.signUp);
@@ -17,6 +23,7 @@ router.get('/', authController.getUser);
 // router.get('/:id', userController.userInfo);
 // router.put('/:id', userController.updatePseudo);
 // router.delete('/:id', userController.deleteUser);
+router.post("/upload", upload.single("file"), uploadController.uploadProfil);
 
 //! Export du module router a réutiliser dans le index.js pour associer les routes avec un router.
 module.exports = router;
