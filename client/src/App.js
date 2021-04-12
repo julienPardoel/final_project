@@ -6,8 +6,15 @@ import { UidContext } from "./AppContext";
 
 import axios from "axios";
 
+import { useDispatch } from "react-redux";
+
+import { getUser } from "./actions/user.actions";
+
 const App = () => {
   const [uid, setUid] = useState(null);
+  const [log, setLog] = useState(false);
+  
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -20,9 +27,11 @@ const App = () => {
           setUid(res.data);
         })
         .catch((err) => console.log("No token"));
+        setLog(true)
     };
     fetchToken();
-  }, [uid]);
+    if (uid) dispatch(getUser(uid));
+  }, [log, dispatch]);
 
   return (
     <UidContext.Provider value={uid}>
@@ -31,4 +40,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App

@@ -1,5 +1,6 @@
 //dans ce fichier on utilise mongoose
 const mongoose = require("mongoose");
+const { isEmail } = require('validator');
 
 // on crée un modele de données pour les envoyer dans la db
 const userSchema = new mongoose.Schema(
@@ -16,6 +17,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: true,
       required: true,
+      validate: [isEmail],
       lowercase: true,
       trim: true,
     },

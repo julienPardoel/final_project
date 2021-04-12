@@ -38,27 +38,19 @@ module.exports.signUp = async (req, res) => {
 // on exporte vers la route methode post à l'url /login pour la connexion
 module.exports.signIn = async (req, res) => {
 
-  try {
-
   // on vérifie que l'email existe dans db
   const user = await UserModel.findOne({ email: req.body.email });
 
   // si l'email n'existe pas on retourne une erreur
   if (!user) {
-    return res.status(404).send({
-      message: "email invalid",
-    });
+    return res.status(401).send({ message: "email" });
   }
 
   // on compare le mot de passe avec celui de la db
   // si le mot de passe est bon
   if (!(await bcrypt.compare(req.body.password, user.password))) {
-    return res.status(404).send({
-      message: "password invalid",
-    });
+    return res.status(401).send({ message: "password" });
   }
-
-  
 
   // on crée un token
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
@@ -71,10 +63,6 @@ module.exports.signIn = async (req, res) => {
   res.send({
     message: "Authentification réussie",
   });
-} catch (err) {
-  const errors = signInErrors(err);
-        res.status(200).json({ errors });
-}
 };
 
 // on exporte la vue de tout les utilisateurs

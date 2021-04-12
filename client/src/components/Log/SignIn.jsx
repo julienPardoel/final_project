@@ -12,6 +12,7 @@ const SignIn = () => {
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
 
+
     axios({
       method: "post",
       url: `${process.env.REACT_APP_API_URL}api/user/login`,

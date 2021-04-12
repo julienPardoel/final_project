@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { UidContext } from "../AppContext";
 import AllSign from "./Log/AllSign";
 import LogOut from "./Log/LogOut";
 
-
 const Navbar = () => {
   const uid = useContext(UidContext);
+  const userData = useSelector((state) => state.userReducer);
 
   return (
     <nav className="nav-bar-container">
@@ -15,14 +17,17 @@ const Navbar = () => {
         <input type="text" placeholder="Rechercher..."></input>
 
         {uid ? (
-            <div className="nav-bar-welcome">
-                <h2>Bienvenue User</h2>
-                <LogOut/>
-            </div>
+          <div className="nav-bar-welcome">
+            <NavLink exact to="/profil">
+              <h2>Bienvenue {userData.pseudo}</h2>
+            </NavLink>
+
+            <LogOut />
+          </div>
         ) : (
-            <div>
-                <AllSign/>
-            </div>
+          <div>
+            <AllSign />
+          </div>
         )}
       </div>
     </nav>

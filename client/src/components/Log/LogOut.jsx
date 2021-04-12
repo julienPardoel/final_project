@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+
+// permet de supprimer le cookie en front
 import cookie from "js-cookie";
 
 const Logout = () => {
