@@ -8,7 +8,8 @@ const Thread = () => {
   const [loadMovie, setLoadMovie] = useState(true);
 
   const dispatch = useDispatch();
-  const movies = useSelector((state) => state.moviesReducer);
+  const moviesData = useSelector((state) => state.moviesReducer);
+
 
   useEffect(() => {
     if (loadMovie) {
@@ -17,15 +18,14 @@ const Thread = () => {
     }
   }, [loadMovie, dispatch]);
 
-
- 
   return (
     <div className="thread-container">
-      <h2>Liste de films</h2>
-      {!isEmpty(movies[0]) &&
-        movies.map((movie) => {
-          return <LittleCard movie={movie} key={movie._id}/>;
+      
+      {!isEmpty(moviesData[0]) &&
+        moviesData.map((movie) => {
+          return <LittleCard movie={movie}/>;
         })}
+        
     </div>
   );
 };

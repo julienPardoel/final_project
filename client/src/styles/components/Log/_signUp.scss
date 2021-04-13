@@ -21,6 +21,14 @@
 
     >label {
       text-align: center;
+      a {
+        text-decoration: none;
+        color: $color-blue;
+        text-shadow: -1px 1px 3px $color-pink;
+      }
+      a:hover {
+        color: $color-pink;
+      }
     }
 
     >.btn {

@@ -4,14 +4,13 @@ import { useSelector } from "react-redux";
 
 const LittleCard = () => {
 
-  const movieData = useSelector((state) => state.moviesReducer);
+  const moviesData = useSelector((state) => state.moviesReducer);
 
   return (
-    <div className="little_card">
-        <h2>container</h2>
+    <div className="little-card">
         <div className="card-container">
           <div className="card-poster">
-          <img src={movieData.poster_path} alt="" />
+          <img src={moviesData.poster_path} alt="" />
           </div>
           <div className="card-title">
             

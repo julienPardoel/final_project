@@ -1,5 +1,7 @@
 //dans ce fichier on utilise mongoose
 const mongoose = require("mongoose");
+
+// librairie qui permet de parametrer le format de l'email
 const { isEmail } = require('validator');
 
 // on crée un modele de données pour les envoyer dans la db

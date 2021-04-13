@@ -11,6 +11,7 @@
   a {
     font-family: $font-bold;
     font-size: 2em;
+    text-shadow: $color-pink -1px 1px 1px;
   }
 
   a:link {
@@ -19,6 +20,10 @@
 
   a:visited {
     color: $color-blue;
+  }
+  a:hover {
+    cursor: pointer;
+    color: $color-pink;
   }
 }
 .heart {

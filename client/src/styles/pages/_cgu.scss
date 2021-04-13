@@ -1,0 +1,32 @@
+.cgu {
+    background-color: black;
+    color: $color-blue;
+    text-shadow: -1px 1px 1px $color-pink;
+    font-family: $font-bold;
+    font-size: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    a{
+        text-decoration: none;
+        color: $color-blue;
+    }
+    a:hover {
+        color: $color-pink;
+    }
+}
+
+.cgu-star {
+    position: fixed;
+    top: -1vh;
+    font-size: 2rem;
+    transform: translateY(0);
+    animation: fall2 3s linear forwards;
+  }
+@keyframes fall2 {
+  to {
+    transform: translateY(105vh);
+  }
+}
