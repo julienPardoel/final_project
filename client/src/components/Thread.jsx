@@ -24,8 +24,8 @@ const Thread = () => {
     <div className="thread-container">
       <h2>Liste de films</h2>
       {!isEmpty(movies[0]) &&
-        movies.map(() => {
-          return <LittleCard />;
+        movies.map((movie) => {
+          return <LittleCard movie={movie}/>;
         })}
     </div>
   );
