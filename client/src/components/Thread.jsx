@@ -14,7 +14,6 @@ const Thread = () => {
     if (loadMovie) {
       dispatch(getMovies());
       setLoadMovie(false);
-      console.log(movies);
     }
   }, [loadMovie, dispatch]);
 
@@ -25,7 +24,7 @@ const Thread = () => {
       <h2>Liste de films</h2>
       {!isEmpty(movies[0]) &&
         movies.map((movie) => {
-          return <LittleCard movie={movie}/>;
+          return <LittleCard movie={movie} key={movie._id}/>;
         })}
     </div>
   );
