@@ -4,15 +4,9 @@ import React from "react";
 const LittleCard = ({ movie }) => {
   // const moviesData = useSelector((state) => state.moviesReducer);
 
-  const str = (movie.overview)
-
-  console.log(str);
-
-  const overview = (str.substr(0, 150));
-
-  console.log(overview);
-
-
+  // limite le nombre de caracteres dans le synopsis de la card
+  const str = movie.overview;
+  const overview = str.substr(0, 150);
 
   return (
     <div className="little-card">
@@ -24,9 +18,12 @@ const LittleCard = ({ movie }) => {
           />
         </div>
         <div className="card-details">
-          <div className="card-title">{movie.title}</div>
-          <div className="card-year">{movie.release_date}</div>
-          <div className="card-synopsis">{(overview)}...</div>
+          <div className="card-title-vote">
+            <div className="card-title">{movie.title}</div>
+            <div className="card-vote">⭐{movie.vote_average}</div>
+          </div>
+          <div className="card-date">Date de sortie: {movie.release_date}</div>
+          <div className="card-synopsis">{overview}...</div>
         </div>
       </div>
     </div>
