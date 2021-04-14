@@ -22,8 +22,13 @@ const Navbar = () => {
         <h2 onClick={handleSort} id="sort-btn">
           Trier
         </h2>
+
         {showSort ? <SortNav /> : null}
-        <img src="../img/logo.png" alt="" />
+
+        <a className="nav-back-to-home" href="/home">
+          <img src="../img/logo.png" alt="" />
+        </a>
+
         <input type="text" placeholder="Rechercher..."></input>
 
         {uid ? (

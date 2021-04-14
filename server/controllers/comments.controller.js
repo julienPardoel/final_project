@@ -1,6 +1,7 @@
 module.exports.commentPost = (req, res) => {
     
     const newComment = new commentsModel({
+        movieId: req.body.movieId,
         commentsId: req.body.commentsId,
         message: req.body.message,
       });
