@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadPicture } from "../actions/user.actions";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { dateParser } from "../components/Utils";
 
 const Profil = () => {
   const [file, setFile] = useState();
@@ -26,8 +27,11 @@ const Profil = () => {
         {/* pseudo */}
         <p>Bienvenue sur votre profil</p>
         <h2 className="profil-pseudo">{userData.pseudo}</h2>
-        {/* image */}
+        {/* date d'inscription */}
+        <h3 className="profil-date">Membre depuis le : {dateParser(userData.createdAt)}</h3>
+        {/* photo de profil */}
         <img className="profil-picture" src={userData.picture} alt="" />
+        {/* formulaire changement photo de profil */}
         <form
           action=""
           onSubmit={handlePicture}
@@ -43,10 +47,13 @@ const Profil = () => {
           />
           <input className="btn-send" type="submit" value="Envoyer" />
         </form>
-        <a className="back-to-home" href="/home"><i class="fas fa-home"></i></a>
+        {/* lien vers un reour à l'accueil */}
+        <a className="back-to-home" href="/home">
+          <i class="fas fa-home"></i>
+        </a>
         <p>Retour à l'accueil</p>
       </div>
-      
+
       <Footer />
     </div>
   );
