@@ -5,7 +5,7 @@ const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors.utils");
 
 module.exports.uploadProfil = async (req, res) => {
-  console.log(req)
+  console.log(req);
   try {
     // si l'image n'est pas de se format elle est refusée
     if (
@@ -16,15 +16,13 @@ module.exports.uploadProfil = async (req, res) => {
       throw Error("invalid file");
 
     // si la taille de l'image est supérieure à ... elle est refusée
-    if (req.file.size > 500000)
-    throw Error("max size");
-
+    if (req.file.size > 500000) throw Error("max size");
   } catch (err) {
     const errors = uploadErrors(err);
     return res.status(201).json({ errors });
   }
   const fileName = req.body.name + ".jpg";
-console.log(req)
+  console.log(req);
   await pipeline(
     req.file.stream,
     fs.createWriteStream(`${__dirname}/../../client/public/img/${fileName}`)

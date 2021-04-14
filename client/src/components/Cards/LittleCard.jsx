@@ -1,24 +1,34 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+
+const LittleCard = ({ movie }) => {
+  // const moviesData = useSelector((state) => state.moviesReducer);
+
+  const str = (movie.overview)
+
+  console.log(str);
+
+  const overview = (str.substr(0, 150));
+
+  console.log(overview);
 
 
-const LittleCard = () => {
-
-  const moviesData = useSelector((state) => state.moviesReducer);
 
   return (
     <div className="little-card">
-        <div className="card-container">
-          <div className="card-poster">
-          <img src={moviesData.poster_path} alt="" />
-          </div>
-          <div className="card-title">
-            
-          </div>
-          <div className="card-synopsis">
-            
-          </div>
+      <div className="card-container">
+        <div className="card-poster">
+          <img
+            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+            alt=""
+          />
         </div>
+        <div className="card-details">
+          <div className="card-title">{movie.title}</div>
+          <div className="card-year">{movie.release_date}</div>
+          <div className="card-synopsis">{(overview)}...</div>
+        </div>
+      </div>
     </div>
   );
 };
