@@ -1,12 +1,14 @@
-import React from "react";
-// import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import BigCard from "./BigCard";
+
+// import BigCard from "./BigCard";
 
 const LittleCard = ({ movie }) => {
-  // const moviesData = useSelector((state) => state.moviesReducer);
-
   // limite le nombre de caracteres dans le synopsis de la card
   const str = movie.overview;
   const overview = str.substr(0, 150);
+
+  const [showComments, setShowComments] = useState(false);
 
   return (
     <div className="little-card">
@@ -24,6 +26,13 @@ const LittleCard = ({ movie }) => {
           </div>
           <div className="card-date">Date de sortie: {movie.release_date}</div>
           <div className="card-synopsis">{overview}...</div>
+          <div className="card-comment-icon">
+            <i
+              class="fas fa-comments"
+              onClick={() => setShowComments(!showComments)}
+            ></i>
+          </div>
+          {showComments && <BigCard movie={movie._id} />}
         </div>
       </div>
     </div>

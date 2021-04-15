@@ -1,0 +1,27 @@
+.comments {
+    height: 100%;
+    .comments-form {
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        form {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            label{
+                font-family: $font-regular;
+            }
+            .input-message {
+                width: 80%;
+                padding: 5px;
+                border-radius: 5px;
+                border: solid $color-blue 3px;
+            }
+        }
+    }
+    .comments-thread {
+        height: 90%;
+    }
+}

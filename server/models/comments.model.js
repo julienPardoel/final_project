@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose');
 
-const commentsSchema = new mongoose.Schema(
+const commentSchema = new mongoose.Schema(
     {
         movieId: {
             type: String,
@@ -16,5 +16,10 @@ const commentsSchema = new mongoose.Schema(
             trim: true,
             maxlenght: 150,
         }
-    }
-)
+    },
+    {
+        timestamps: true,
+      }
+);
+
+module.exports = mongoose.model('comment', commentSchema);
