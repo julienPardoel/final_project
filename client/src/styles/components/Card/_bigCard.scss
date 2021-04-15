@@ -1,11 +1,10 @@
 .big-card-container {
     position: fixed;
-    // background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
     width: 100vw;
-    height: 100vh;
-    top: 0;
+    top: 100px;
+    bottom: 40px;
     left: 0;
-    // border: solid $color-blue 3px;
     display: flex;
     justify-content: center;
     align-items: center;

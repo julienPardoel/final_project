@@ -4,6 +4,7 @@ import Comments from "./Comments";
 
 const BigCard = (movie) => {
   return (
+
     <div className="big-card-container">
       <div className="big-card">
         <div className="bc-movie">

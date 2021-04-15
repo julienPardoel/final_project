@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UidContext } from "../../AppContext";
 import BigCard from "./BigCard";
-
-// import BigCard from "./BigCard";
+// import { isEmpty } from "../Utils";
 
 const LittleCard = ({ movie }) => {
+  const uid = useContext(UidContext);
   // limite le nombre de caracteres dans le synopsis de la card
   const str = movie.overview;
   const overview = str.substr(0, 150);
 
   const [showComments, setShowComments] = useState(false);
+
+  // const movieData = useSelector((state) => state.moviesReducer);
 
   return (
     <div className="little-card">
@@ -26,13 +29,19 @@ const LittleCard = ({ movie }) => {
           </div>
           <div className="card-date">Date de sortie: {movie.release_date}</div>
           <div className="card-synopsis">{overview}...</div>
-          <div className="card-comment-icon">
-            <i
-              class="fas fa-comments"
-              onClick={() => setShowComments(!showComments)}
-            ></i>
-          </div>
-          {showComments && <BigCard movie={movie._id} />}
+          {uid ? (
+            <div className="card-comment-icon">
+              <i
+                class="fas fa-comments"
+                onClick={() => setShowComments(!showComments)}
+              ></i>
+            </div>
+          ) : (
+            <div className="no-comment">
+              <p>Pour accéder aux commentaires veuillez vous connecter</p>
+            </div>
+          )}
+          {showComments && <BigCard />}
         </div>
       </div>
     </div>

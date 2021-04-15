@@ -3,8 +3,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 const Log = () => {
-  const [signUpModal, setSignUpModal] = useState();
-  const [signInModal, setSignInModal] = useState();
+  const [signUpModal, setSignUpModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
 
   const handleModals = (e) => {
     if (e.target.id === "register") {
@@ -23,14 +23,12 @@ const Log = () => {
           <li
             onClick={handleModals}
             id="register"
-            className={signUpModal ? "active-btn" : null}
           >
             S'inscrire
           </li>
           <li
             onClick={handleModals}
             id="login"
-            className={signInModal ? "active-btn" : null}
           >
             Se connecter
           </li>

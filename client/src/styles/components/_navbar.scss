@@ -8,28 +8,36 @@
     background-color: black;
     color: white;
     height: 100px;
-    > h2 {
-      color: $color-blue;
-      font-family: $font-bold;
-      font-size: 1.5em;
-      text-shadow: $color-pink -1px 1px 1px;
-      cursor: pointer;
-    }
-    > h2:hover {
-      color: $color-pink;
-    }
-    .nav-back-to-home {
+    .nav-bar-left {
+      width: 25vw;
       height: 100%;
-      > img {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      #setting-btn {
+        color: $color-blue;
+        font-size: 2em;
+        text-shadow: $color-pink -1px 1px 1px;
+        cursor: pointer;
+      }
+      .nav-back-to-home {
         height: 100%;
+        > img {
+          height: 100%;
+        }
+      }
+      #setting-btn:hover {
+        color: $color-pink;
       }
     }
-    > input {
-      width: 30vw;
-      border-radius: 5px;
-      padding: 5px;
+    .nav-bar-center {
+      > input {
+        width: 40vw;
+        border-radius: 5px;
+        padding: 5px;
+      }
     }
-    > .nav-bar-welcome {
+    .nav-bar-right {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -37,6 +45,7 @@
       color: $color-blue;
       text-shadow: $color-pink -1px 1px 1px;
       width: 25vw;
+      height: 100%;
       > a {
         > img {
           width: 60px;

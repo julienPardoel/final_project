@@ -4,35 +4,37 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "../AppContext";
 import AllSign from "./Log/AllSign";
 import LogOut from "./Log/LogOut";
-import SortNav from "./Sort/SortNav";
+import SettingNav from "./Sort/SettingNav";
 
 const Navbar = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
 
-  const [showSort, setShowSort] = useState(false);
-
-  const handleSort = () => {
-    setShowSort(true);
-  };
+  const [showSetting, setShowSetting] = useState(false);
 
   return (
     <nav className="nav-bar-container">
       <div className="nav-bar">
-        <h2 onClick={handleSort} id="sort-btn">
-          Trier
-        </h2>
+        <div className="nav-bar-left">
+          <i
+            onClick={() => setShowSetting(!showSetting)}
+            id="setting-btn"
+            class="fas fa-cog"
+          ></i>
 
-        {showSort ? <SortNav /> : null}
+          {showSetting && <SettingNav />}
 
-        <a className="nav-back-to-home" href="/home">
-          <img src="../img/logo.png" alt="" />
-        </a>
+          <a className="nav-back-to-home" href="/home">
+            <img src="../img/logo.png" alt="" />
+          </a>
+        </div>
 
-        <input type="text" placeholder="Rechercher..."></input>
+        <div className="nav-bar-center">
+          <input type="text" placeholder="Rechercher..."></input>
+        </div>
 
         {uid ? (
-          <div className="nav-bar-welcome">
+          <div className="nav-bar-right">
             <h2>Bienvenue {userData.pseudo} </h2>
             <NavLink exact to="/profil">
               <img src={userData.picture} alt="" />
