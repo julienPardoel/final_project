@@ -2,7 +2,7 @@ import React from "react";
 
 import Comments from "./Comments";
 
-const BigCard = (movie) => {
+const BigCard = ({movie}) => {
   return (
     <div className="big-card-container">
       <div className="bc-close">

@@ -40,7 +40,7 @@ const LittleCard = ({ movie }) => {
               <p>Pour accéder aux commentaires veuillez vous connecter</p>
             </div>
           )}
-          {showComments && <BigCard />}
+          {showComments && <BigCard movie={movie.id}/>}
         </div>
       </div>
     </div>
