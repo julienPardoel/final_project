@@ -1,14 +1,8 @@
 import React from "react";
 
-const SortNav = () => {
+const SettingNav = () => {
   return (
     <div id="setting-nav">
-      <div className="popular">
-        <h2>Les plus populaires</h2>
-      </div>
-      <div className="top-vote">
-        <h2>Les mieux notés</h2>
-      </div>
       <div className="partenaire">
         <h2>Notre partenaire</h2>
         <img src="../../img/tmdb2.svg" alt="" />
@@ -20,4 +14,4 @@ const SortNav = () => {
   );
 };
 
-export default SortNav;
+export default SettingNav;

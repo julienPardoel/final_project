@@ -14,9 +14,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      #setting-btn {
+      .partenaire {
         color: $color-blue;
-        font-size: 2em;
+        font-size: 1em;
         text-shadow: $color-pink -1px 1px 1px;
         cursor: pointer;
       }
@@ -26,7 +26,7 @@
           height: 100%;
         }
       }
-      #setting-btn:hover {
+      .partenaire:hover {
         color: $color-pink;
       }
     }

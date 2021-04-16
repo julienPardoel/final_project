@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "../AppContext";
 import AllSign from "./Log/AllSign";
 import LogOut from "./Log/LogOut";
-import SettingNav from "./Sort/SettingNav";
+import SettingNav from "./SettingNav/SettingNav";
 
 const Navbar = () => {
   const uid = useContext(UidContext);
@@ -16,13 +16,18 @@ const Navbar = () => {
     <nav className="nav-bar-container">
       <div className="nav-bar">
         <div className="nav-bar-left">
-          <i
+          {/* <i
             onClick={() => setShowSetting(!showSetting)}
             id="setting-btn"
             class="fas fa-cog"
           ></i>
 
-          {showSetting && <SettingNav />}
+          {showSetting && <SettingNav />} */}
+
+          <a className="partenaire" target="_blank" href="https://www.themoviedb.org/?language=fr">
+            <h2>Notre partenaire</h2>
+            <img src="../../img/tmdb2.svg" alt="" />
+          </a>
 
           <a className="nav-back-to-home" href="/home">
             <img src="../img/logo.png" alt="" />

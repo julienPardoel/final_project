@@ -5,13 +5,12 @@ import BigCard from "./BigCard";
 
 const LittleCard = ({ movie }) => {
   const uid = useContext(UidContext);
+  
   // limite le nombre de caracteres dans le synopsis de la card
   const str = movie.overview;
   const overview = str.substr(0, 150);
 
   const [showComments, setShowComments] = useState(false);
-
-  // const movieData = useSelector((state) => state.moviesReducer);
 
   return (
     <div className="little-card">
