@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_MOVIES_POP = "GET_MOVIES_POP";
 export const GET_MOVIES_TOP = "GET_MOVIES_TOP";
 export const GET_MOVIE = "GET_MOVIE";
+export const GET_MOVIE_SEARCH = "GET_MOVIE_SEARCH";
 
 // les plus populaires
 export const getMoviesPop = () => {
@@ -41,6 +42,20 @@ export const getMovie = () => {
       )
       .then((res) => {
         dispatch({ type: GET_MOVIE, payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+// search
+export const getMovieSearch = () => {
+  return (dispatch) => {
+    return axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=fd4d4bf6cf58ba27b154b5975554d16a&query=`
+      )
+      .then((res) => {
+        dispatch({ type: GET_MOVIE_SEARCH, payload: res.data });
       })
       .catch((err) => console.log(err));
   };
