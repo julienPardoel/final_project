@@ -12,11 +12,12 @@
     > h2 {
       font-family: $font-bold;
       color: $color-blue;
-      text-shadow: -1px 1px 1px $color-pink;
+      // text-shadow: -1px 1px 1px $color-pink;
     }
     > h2:hover {
-      color: $color-pink;
+      // color: $color-pink;
       cursor: pointer;
+      text-shadow: $color-pink -1px 1px 1px;
     }
     i{
       color: $color-blue;
@@ -30,11 +31,12 @@
     > h2 {
       font-family: $font-bold;
       color: $color-blue;
-      text-shadow: -1px 1px 1px $color-pink;
+      // text-shadow: -1px 1px 1px $color-pink;
     }
     > h2:hover {
-      color: $color-pink;
+      // color: $color-pink;
       cursor: pointer;
+      text-shadow: $color-pink -1px 1px 1px;
     }
     i{
       color: $color-blue;

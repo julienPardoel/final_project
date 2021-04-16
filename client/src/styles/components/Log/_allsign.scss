@@ -12,12 +12,13 @@
       color: $color-blue;
       font-family: $font-bold;
       font-size: 1.5em;
-      text-shadow: $color-pink -1px 1px 1px;
+      // text-shadow: $color-pink -1px 1px 1px;
       >li {
           cursor: pointer;
       }
       >li:hover{
-        color: $color-pink;
+        // color: $color-pink;
+        text-shadow: $color-pink -1px 1px 1px;
       }
       .active-btn{
         text-decoration: underline 3px;

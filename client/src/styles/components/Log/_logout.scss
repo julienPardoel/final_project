@@ -3,6 +3,7 @@
     display: flex;
     cursor: pointer;
     :hover{
-        color: $color-pink;
+        // color: $color-pink;
+        text-shadow: $color-pink -1px 1px 1px;
     }
 }
