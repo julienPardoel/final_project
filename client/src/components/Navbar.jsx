@@ -27,14 +27,15 @@ const Navbar = () => {
             <img src="../img/logo.png" alt="" />
           </a>
         </div>
-
         <div className="nav-bar-center">
-          <input type="text" placeholder="Rechercher..."></input>
+          {uid ? (
+            <h2>Bienvenue {userData.pseudo} </h2>
+          ) : (
+            <h2>Bienvenue Visiteur</h2>
+          )}
         </div>
-
         {uid ? (
           <div className="nav-bar-right">
-            <h2>Bienvenue {userData.pseudo} </h2>
             <NavLink exact to="/profil">
               <img src={userData.picture} alt="" />
             </NavLink>
