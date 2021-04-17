@@ -38,7 +38,7 @@ const BigCard = (props) => {
           </div>
         </div>
         <div className="bc-comments">
-          <Comments />
+          <Comments movie={movie}/>
         </div>
       </div>
     </div>
