@@ -58,7 +58,7 @@ const Thread = () => {
     }
   };
   return (
-    <div>
+    <div className="thread">
       <div className="thread-selector">
         <div className="t-s-pop">
           <h2 onClick={handleMovie} id="pop">

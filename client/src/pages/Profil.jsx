@@ -28,7 +28,7 @@ const Profil = () => {
         <p>Bienvenue sur votre profil</p>
         <h2 className="profil-pseudo">{userData.pseudo}</h2>
         {/* date d'inscription */}
-        <h3 className="profil-date">Membre depuis le : {dateParser(userData.createdAt)}</h3>
+        <h3 className="profil-date">Membre depuis le :<br/>{dateParser(userData.createdAt)}</h3>
         {/* photo de profil */}
         <img className="profil-picture" src={userData.picture} alt="" />
         {/* formulaire changement photo de profil */}

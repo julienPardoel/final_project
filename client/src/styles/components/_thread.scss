@@ -1,3 +1,6 @@
+.thread {
+width: 100%;
+
 .thread-selector {
   background-color: black;
   width: 100%;
@@ -15,7 +18,7 @@
     > h2 {
       font-family: $font-bold;
       color: $color-blue;
-      font-size: 1rem;
+      // font-size: 1em;
       // text-shadow: -1px 1px 1px $color-pink;
     }
     > h2:hover {
@@ -35,7 +38,7 @@
     > h2 {
       font-family: $font-bold;
       color: $color-blue;
-      font-size: 1rem;
+      // font-size: 1rem;
       // text-shadow: -1px 1px 1px $color-pink;
     }
     > h2:hover {
@@ -72,4 +75,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
 }

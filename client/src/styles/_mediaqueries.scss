@@ -1,0 +1,101 @@
+// mobile
+@media screen and (max-width: 610px) {
+  .gateway {
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .nav-bar-left {
+    .partenaire {
+      display: none;
+    }
+  }
+
+  .all-sign-list {
+    ul {
+      flex-direction: column;
+    }
+  }
+
+  .thread-selector {
+    h2 {
+      font-size: 60%;
+    }
+  }
+
+  .signup {
+    .error {
+      height: 20px !important;
+      font-size: 0.5em;
+    }
+  }
+  .little-card {
+    .card-title {
+      font-size: 1em !important;
+    }
+    .card-date {
+      font-size: 0.7em;
+    }
+    .card-synopsis {
+      font-size: 0.6em;
+    }
+  }
+  .nav-bar-right {
+      justify-content: space-around !important;
+  }
+  .profil-picture {
+      width: 120px !important;
+      height: 120px !important;
+  }
+}
+
+// tablette
+@media screen and (max-width: 1160px) {
+  .thread-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .little-card {
+    width: 90% !important;
+  }
+
+  .partenaire {
+    h2 {
+      font-size: 0.8em;
+    }
+  }
+
+  .all-sign-list {
+    ul {
+      font-size: 0.8em;
+    }
+  }
+
+  .signup {
+    width: 100% !important;
+    form {
+      width: 50% !important;
+    }
+  }
+
+  .signin {
+    width: 100% !important;
+    form {
+      width: 50% !important;
+    }
+  }
+
+  .nav-bar-right {
+    a {
+      img {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+  }
+}

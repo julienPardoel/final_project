@@ -27,7 +27,7 @@ const LittleCard = ({ movie }) => {
             <div className="card-vote">⭐{movie.vote_average}</div>
           </div>
           <div className="card-date">Date de sortie: {movie.release_date}</div>
-          <div className="card-synopsis">{overview}...</div>
+          <p className="card-synopsis">{overview}...</p>
           {uid ? (
             <div className="card-comment-icon">
               <i

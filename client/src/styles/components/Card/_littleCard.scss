@@ -7,6 +7,7 @@
   border-radius: 15px;
   background-color: black;
   color: $color-blue;
+  padding: 5px 5px 5px 0;
   .card-container {
     height: 100%;
     display: flex;
@@ -35,11 +36,11 @@
         align-items: center;
         .card-title {
           font-family: $font-bold;
-          font-size: 1.5em;
+          font-size: 1.3em;
         }
         .card-vote {
           font-family: $font-bold;
-          font-size: 1.5em;
+          font-size: 1.3em;
         }
       }
       .card-date {
@@ -61,7 +62,7 @@
       }
       .no-comment {
         font-family: $font-regular;
-        font-size: 0.8em;
+        font-size: 0.7rem;
       }
     }
   }

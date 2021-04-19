@@ -1,26 +1,22 @@
 .all-sign-container {
   width: 20vw;
-  
-  
   .all-sign-list {
     width: 100%;
-    >ul {
+    > ul {
       width: 100%;
       display: flex;
       justify-content: space-around;
       list-style-type: none;
-      color: $color-blue;
-      font-family: $font-bold;
-      font-size: 1.5em;
-      // text-shadow: $color-pink -1px 1px 1px;
-      >li {
-          cursor: pointer;
+      > li {
+        cursor: pointer;
+        color: $color-blue;
+        font-family: $font-bold;
+        font-size: 1em;
       }
-      >li:hover{
-        // color: $color-pink;
+      > li:hover {
         text-shadow: $color-pink -1px 1px 1px;
       }
-      .active-btn{
+      .active-btn {
         text-decoration: underline 3px;
       }
     }

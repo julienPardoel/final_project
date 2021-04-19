@@ -3,27 +3,27 @@ import React from "react";
 const Gateway = () => {
   
   // fonction pour créer des coeurs animés
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
+  function createStars() {
+    const stars = document.createElement("div");
+    stars.classList.add("stars");
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+    stars.style.left = Math.random() * 100 + "vw";
+    stars.style.animationDuration = Math.random() * 2 + 3 + "s";
 
-    heart.innerText = "⭐";
+    stars.innerText = "⭐";
 
-    document.body.appendChild(heart);
+    document.body.appendChild(stars);
 
     setTimeout(() => {
-      heart.remove();
+      stars.remove();
     }, 5000);
   }
 
-  setInterval(createHeart, 1500);
+  setInterval(createStars, 1500);
 
   return (
     <div className="gateway">
-      {createHeart}
+      {createStars}
       <img src="../img/logo.png" alt="" />
       <a href="http://localhost:3000/home">Accéder au site</a>
     </div>

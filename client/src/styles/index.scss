@@ -1,9 +1,12 @@
 @import './settings';
 @import './vars';
+@import './mediaqueries';
+
 @import './pages/home';
 @import './pages/gateway';
 @import './pages/profil';
 @import './pages/cgu';
+
 @import './components/navbar';
 @import './components/footer';
 @import './components/Log/allsign';
