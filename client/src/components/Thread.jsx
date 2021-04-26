@@ -1,34 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMoviesTop } from "../actions/movies.actions";
-import { getMoviesPop } from "../actions/movies.actions";
 import LittleCard from "./Cards/LittleCard";
 import axios from "axios";
-
-import { isEmpty } from "./Utils";
 
 const Thread = () => {
   // etat de la page au chargement
   const [loadMovieTop, setLoadMovieTop] = useState(false);
   const [loadMoviePop, setLoadMoviePop] = useState(true);
   const [loadMovieSearch, setLoadMovieSearch] = useState("");
-  // dispatch les differents elements
-  const dispatch = useDispatch();
-  const moviesData = useSelector((state) => state.moviesReducer);
   const [movies, setMovies] = useState([]);
 
+  // const [CurrentPage, setCurrentPage] = useState(0)
+
+  // infinite scroll populaires
+  // const loadMore = () => {
+  //   let endpoint ='';
+  //     setLoadMoviePop(true);
+  //     endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=en-US&page=${CurrentPage + 1}`;
+  // }
+
+  // les mieux notés
   useEffect(() => {
     if (loadMovieTop) {
-      dispatch(getMoviesTop());
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr`
+        )
+        .then((res) => setMovies(res.data.results));
     }
-  }, [loadMovieTop, dispatch]);
+  }, [loadMovieTop]);
 
+  // les plus populaires
   useEffect(() => {
     if (loadMoviePop) {
-      dispatch(getMoviesPop());
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr`
+        )
+        .then((res) => setMovies(res.data.results));
     }
-  }, [loadMoviePop, dispatch]);
+    // infinite scroll
+    // window.addEventListener('scroll', loadMore);
+    // return () => window.removeEventListener('scroll', loadMore);
+  }, [loadMoviePop]);
 
+  // recherche
   useEffect(() => {
     if (loadMovieSearch) {
       axios
@@ -39,19 +55,15 @@ const Thread = () => {
     }
   }, [loadMovieSearch]);
 
- 
-
   const handleMovie = (e) => {
     if (e.target.id === "pop") {
       setLoadMovieTop(false);
       setLoadMoviePop(true);
       setLoadMovieSearch("");
-      
     } else if (e.target.id === "top") {
       setLoadMoviePop(false);
       setLoadMovieTop(true);
       setLoadMovieSearch("");
-      
     } else if (e.target.id === "input") {
       setLoadMoviePop(false);
       setLoadMovieTop(false);
@@ -59,6 +71,7 @@ const Thread = () => {
   };
   return (
     <div className="thread">
+      {/* barre de recherche */}
       <div className="thread-selector">
         <div className="t-s-pop">
           <h2 onClick={handleMovie} id="pop">
@@ -88,13 +101,15 @@ const Thread = () => {
           {loadMovieSearch && <i class="fas fa-caret-down"></i>}
         </div>
       </div>
+
+      {/* liste des films */}
       <div className="thread-container">
         {loadMovieSearch !== "" &&
           movies.map((movie) => <LittleCard movie={movie} />)}
-        {!isEmpty(moviesData[0]) &&
-          moviesData.map((movie) => {
-            return <LittleCard movie={movie} />;
-          })}
+        {loadMoviePop === true &&
+          movies.map((movie) => <LittleCard movie={movie} />)}
+        {loadMovieTop === true &&
+          movies.map((movie) => <LittleCard movie={movie} />)}
       </div>
     </div>
   );
