@@ -55,77 +55,93 @@ const SignUp = () => {
     }
   };
 
+  const haveAccount = (e) => {
+    setFormSubmit(true);
+  };
+
   return (
     <div className="signup">
       {formSubmit ? (
         <>
           <SignIn />
-          <span></span>
+          {/* <span></span>
           <h4 className="success">
             Enregistrement réussi, veuillez-vous connecter
-          </h4>
+          </h4> */}
         </>
       ) : (
-        <form action="" onSubmit={handleRegister} id="sign-up-form">
-          {/* pseudo */}
-          <label htmlFor="pseudo">Pseudo</label>
-          <input
-            type="text"
-            name="pseudo"
-            id="pseudo"
-            onChange={(e) => setPseudo(e.target.value)}
-            value={pseudo}
-          />
-          <div className="pseudo error"></div>
+        <div className="sign-up-container">
+          <form action="" id="sign-up-in" onSubmit={haveAccount}>
+            {/* vous avez un compte */}
+            <label htmlFor="compte">Vous avez un compte</label>
+            <input type="submit" value="Se connecter" className="btn" />
+            <div className="error"></div>
+          </form>
+          <form action="" onSubmit={handleRegister} id="sign-up-form">
+            {/* pseudo */}
+            <label htmlFor="pseudo">Pseudo</label>
+            <input
+              type="text"
+              name="pseudo"
+              id="pseudo"
+              onChange={(e) => setPseudo(e.target.value)}
+              value={pseudo}
+            />
+            <div className="pseudo error"></div>
 
-          {/* email */}
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <div className="email error"></div>
+            {/* email */}
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <div className="email error"></div>
 
-          {/* password */}
-          <label htmlFor="password">Mot de passe</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <div className="password error"></div>
+            {/* password */}
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <div className="password error"></div>
 
-          {/* password confirmation */}
-          <label htmlFor="password-conf">Confirmer mot de passe</label>
-          <input
-            type="password"
-            name="password"
-            id="password-conf"
-            onChange={(e) => setControlPassword(e.target.value)}
-            value={controlPassword}
-          />
-          <div className="password-confirm error"></div>
+            {/* password confirmation */}
+            <label htmlFor="password-conf">Confirmer mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password-conf"
+              onChange={(e) => setControlPassword(e.target.value)}
+              value={controlPassword}
+            />
+            <div className="password-confirm error"></div>
 
-          {/* CGU checkbox */}
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms">
-            J'accepte les{" "}
-            <a href="/cgu" target="_blank" rel="noopener noreferrer">
-              conditions générales
-            </a>
-          </label>
+            {/* CGU checkbox */}
+            <input type="checkbox" id="terms" />
+            <label htmlFor="terms">
+              J'accepte les{" "}
+              <a href="/cgu" target="_blank" rel="noopener noreferrer">
+                conditions générales
+              </a>
+            </label>
 
-          {/* erreur si pas coché */}
-          <div className="terms error"></div>
+            {/* erreur si pas coché */}
+            <div className="terms error"></div>
 
-          {/* valider inscription */}
-          <input className="btn" type="submit" value="Valider inscription" />
-        </form>
+            {/* valider inscription */}
+            <input className="btn" type="submit" value="Valider inscription" />
+          </form>
+          <a href="/home" className="back-home">
+            <i class="far fa-times-circle"></i>
+          </a>
+          <div />
+        </div>
       )}
     </div>
   );

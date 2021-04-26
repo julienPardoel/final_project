@@ -14,8 +14,19 @@
   }
 
   .all-sign-list {
-    ul {
-      flex-direction: column;
+    // ul {
+    //   flex-direction: column;
+    // }
+    display: none;
+  }
+  .all-sign-burger {
+    display: flex !important;
+    justify-content: center;
+    color: $color-blue;
+    font-size: 2em;
+    i {
+      cursor: pointer;
+
     }
   }
 
@@ -76,7 +87,7 @@
     }
   }
 
-  .signup {
+  .sign-up-container {
     width: 100% !important;
     form {
       width: 50% !important;

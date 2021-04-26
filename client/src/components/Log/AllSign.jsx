@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 const Log = () => {
   const [signUpModal, setSignUpModal] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
+  const [signUpBurger, setSignUpBurger] = useState(false);
 
   const handleModals = (e) => {
     if (e.target.id === "register") {
@@ -16,26 +17,29 @@ const Log = () => {
     }
   };
 
+  const handleBurger = (e) => {
+    setSignUpBurger(true);
+  };
+
   return (
     <div className="all-sign-container">
       <div className="all-sign-list">
         <ul>
-          <li
-            onClick={handleModals}
-            id="register"
-          >
+          <li onClick={handleModals} id="register">
             S'inscrire
           </li>
-          <li
-            onClick={handleModals}
-            id="login"
-          >
+          <li onClick={handleModals} id="login">
             Se connecter
           </li>
         </ul>
         {signUpModal && <SignUp />}
         {signInModal && <SignIn />}
       </div>
+
+      <div className="all-sign-burger">
+        <i class="fas fa-bars" onClick={handleBurger}></i>
+      </div>
+      {signUpBurger && <SignUp />}
     </div>
   );
 };

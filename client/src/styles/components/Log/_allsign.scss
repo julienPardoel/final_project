@@ -21,4 +21,15 @@
       }
     }
   }
+  .all-sign-burger {
+    display: none;
+  }
+}
+
+.back-home {
+  position: fixed;
+  top: 120px;
+  font-size: 2em;
+  color: $color-blue;
+  text-shadow: $color-pink -1px 1px 1px;
 }
