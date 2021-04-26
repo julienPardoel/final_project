@@ -65,7 +65,7 @@ module.exports.signIn = async (req, res) => {
   });
 };
 
-// on exporte la vue de tout les utilisateurs
+// on exporte la vue de l'utilisateurs
 module.exports.getUser = async (req, res) => {
   // const users = await UserModel.find().select("-password");
   // res.status(200).json(users);

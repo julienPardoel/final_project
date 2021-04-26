@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
+import { dateParser } from "../../components/Utils";
 
 const Comments = ({ movieId }) => {
-  const [commenter, setCommenter] = useState("");
+  // const usersData = useSelector((state) => state.usersReducer);
+
   const [message, setMessage] = useState("");
+
   const [comment, setComment] = useState([]);
 
+  const [data, setData] = useState([]);
+  console.log(data);
+
   const handleComment = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
     axios({
-      methode : "post",
-      url : `${process.env.REACT_APP_API_URL}api/comments/`,
-      data : {
-        movieId,
-        commenter,
+      methode: "post",
+      url: `${process.env.REACT_APP_API_URL}api/comments/`,
+      data: {
         message,
-      }
-    })
-      
+      },
+    });
   };
 
   useEffect(() => {
@@ -26,6 +31,12 @@ const Comments = ({ movieId }) => {
       .then((res) => {
         setComment(res.data);
       });
+  }, []);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API_URL}api/user/all`).then((res) => {
+      setData(res.data);
+    });
   }, []);
 
   return (
@@ -42,16 +53,32 @@ const Comments = ({ movieId }) => {
         </form>
       </div>
       {/* fil des messages */}
-      <div className="comments-thread">
-
+      <div className="comments-thread-container">
         {comment.map((comment) => (
-          <div comment={comment}>
-            <div className="comment-picture"><img src="" alt=""/></div>
-            <div className="comments-pseudo">{comment.commenter}</div>
-            <div className="comments-message">{comment.message}</div>
+          <div className="comments-thread" comment={comment}>
+            {console.log(comment)}
+            <div className="comments-picture">
+              <img
+                src={data
+                  .map((user) => {
+                    if (user._id === comment.commenter) return user.picture;
+                  })
+                  .join("")}
+                alt=""
+              />
+            </div>
+            <div className="comments-details">
+              <div className="comments-pseudo">
+                {data.map((user) => {
+                  if (user._id === comment.commenter) return user.pseudo;
+                })}
+                {/* {comment.commenter} */}
+              </div>
+              <div className="comments-message">{comment.message}</div>
+              <div className="comments-date">Message posté {dateParser(comment.createdAt)}</div>
+            </div>
           </div>
         ))}
-
       </div>
     </div>
   );

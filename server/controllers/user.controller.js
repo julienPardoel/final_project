@@ -4,6 +4,7 @@ const UserModel = require("../models/user.model");
 //
 const ObjectId = require("mongoose").Types.ObjectId;
 
+
 // on exporte la vue d'un seul utilisateur
 module.exports.userInfo = async (req, res) => {
   // si l'id est inconnu dans la db on retourne une erreur
@@ -15,4 +16,10 @@ module.exports.userInfo = async (req, res) => {
     if (!err) res.send(docs);
     else console.log("ID unknow : " + err);
   }).select("-password");
+};
+
+
+module.exports.getAllUsers = async (req, res) => {
+  const users = await UserModel.find().select('-password');
+  res.status(200).json(users);
 };

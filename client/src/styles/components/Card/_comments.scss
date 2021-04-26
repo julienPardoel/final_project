@@ -1,9 +1,39 @@
 .comments-container {
-  .comments-thread {
-    .comments-picture {
-      img {
-        width: 40px;
-        height: 40px;
+  .comments-thread-container {
+    .comments-thread {
+      border: solid 3px $color-blue;
+      border-radius: 10px;
+      padding: 0 10px 0 0;
+      margin: 10px;
+      display: flex;
+      background-color: white;
+      .comments-picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: solid 2px $color-blue;
+          margin: 10px;
+        }
+      }
+      .comments-details {
+        display: flex;
+        flex-direction: column;
+        // padding: 5px;
+        justify-content: center;
+        width: 100%;
+        .comments-pseudo {
+          font-family: $font-bold;
+          font-size: 1.1em;
+        }
+        .comments-date {
+          font-size: 0.8em;
+          // align-self: flex-end;
+          text-align: end;
+        }
       }
     }
   }

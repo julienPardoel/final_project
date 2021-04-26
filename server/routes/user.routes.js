@@ -4,6 +4,8 @@ const router = require('express').Router();
 // on importe le fichier qui controlle l'authentification
 const authController = require('../controllers/auth.controller');
 
+const userController = require('../controllers/user.controller')
+
 const uploadController = require('../controllers/upload.controller');
 
 // upload image
@@ -15,6 +17,10 @@ router.post('/register', authController.signUp);
 router.post('/login', authController.signIn);
 router.get('/logout', authController.logOut);
 router.get('/', authController.getUser);
+
+// vue utilisateurs
+router.get('/all', userController.getAllUsers);
+
 
 // gestion photo utilisateur
 router.post("/upload", upload.single("file"), uploadController.uploadProfil);
