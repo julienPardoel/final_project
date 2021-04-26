@@ -1,16 +1,15 @@
-import React, {useState} from "react";
-
+import React, { useState } from "react";
 import Comments from "./Comments";
 
 const BigCard = (props) => {
+  const [movie] = useState(props.movie);
 
-  const [movie] = useState(props.movie)
-
-  
   return (
     <div className="big-card-container">
       <div className="bc-close">
-        <i class="fas fa-times"></i>
+        <a href="/home">
+          <i class="fas fa-times"></i>
+        </a>
       </div>
       <div className="big-card">
         <div className="bc-movie">
@@ -38,7 +37,7 @@ const BigCard = (props) => {
           </div>
         </div>
         <div className="bc-comments">
-          <Comments movie={movie}/>
+          <Comments />
         </div>
       </div>
     </div>

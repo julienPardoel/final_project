@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import LittleCard from "./Cards/LittleCard";
 import axios from "axios";
 
@@ -10,39 +9,40 @@ const Thread = () => {
   const [loadMovieSearch, setLoadMovieSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  // const [CurrentPage, setCurrentPage] = useState(0)
-
-  // infinite scroll populaires
+  // infinite scroll
   // const loadMore = () => {
-  //   let endpoint ='';
-  //     setLoadMoviePop(true);
-  //     endpoint = `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=en-US&page=${CurrentPage + 1}`;
+  //   let endpoint = '';
+  //       setLoading(true)
+  //       console.log('CurrentPage', CurrentPage)
+  //       endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`;
+  //       fetchMovies(endpoint);
   // }
-
-  // les mieux notés
-  useEffect(() => {
-    if (loadMovieTop) {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr`
-        )
-        .then((res) => setMovies(res.data.results));
-    }
-  }, [loadMovieTop]);
 
   // les plus populaires
   useEffect(() => {
     if (loadMoviePop) {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr`
+          `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr&page=1`
         )
         .then((res) => setMovies(res.data.results));
     }
     // infinite scroll
-    // window.addEventListener('scroll', loadMore);
-    // return () => window.removeEventListener('scroll', loadMore);
+    // window.addEventListener("scroll", loadMore);
+    // return () => window.removeEventListener("scroll", loadMore);
+
   }, [loadMoviePop]);
+
+  // les mieux notés
+  useEffect(() => {
+    if (loadMovieTop) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr&page=1`
+        )
+        .then((res) => setMovies(res.data.results));
+    }
+  }, [loadMovieTop]);
 
   // recherche
   useEffect(() => {
