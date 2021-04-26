@@ -6,9 +6,9 @@ const commentSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        commenterId: {
-            type: String,
-            required: true,
+        commenter: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
         },
         message: {
             type: String,

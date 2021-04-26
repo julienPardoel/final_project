@@ -6,6 +6,7 @@ const express = require("express");
 
 // on importe la route de l'utilisateur
 const userRoutes = require('./routes/user.routes');
+const commentsRoutes = require('./routes/comments.routes');
 
 // on importe la db
 require('./config/db');
@@ -33,7 +34,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/user', userRoutes);
-
+app.use('/api/comments', commentsRoutes);
 // envoi de la db vers une adresse sur une app locale
 // utilisation d'une variable d'environement > sécurité
 app.listen(process.env.PORT, () => {

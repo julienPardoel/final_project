@@ -1,8 +1,10 @@
-module.exports.commentPost = (req, res) => {
-    
+const commentsModel = require("../models/comments.model");
+
+module.exports.postComment = async (req, res) => {
+    console.log(req)
     const newComment = new commentsModel({
         movieId: req.body.movieId,
-        commentsId: req.body.commentsId,
+        commenter: req.body.commenter,
         message: req.body.message,
       });
   
@@ -14,6 +16,10 @@ module.exports.commentPost = (req, res) => {
     }
   };
 
-  // module.exports.getComments = (req, res) => {
-  //   commentsModel.find()
-  // }
+  module.exports.getComments = (req, res) => {
+    // commentsModel.find({movieId: req.params.id})
+    commentsModel.find({movieId: req.params.id},(err, docs) => {
+      if (!err) res.send(docs);
+      else console.log("Error to get data : " + err);
+    })
+  }
