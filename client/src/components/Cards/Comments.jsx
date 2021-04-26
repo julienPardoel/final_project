@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Comments = () => {
+const Comments = ({movie}) => {
+  console.log(movie);
   return (
     <div className="comments-container">
       <div className="comments-form">
@@ -18,7 +19,7 @@ const Comments = () => {
 
           </div>
           <div className="comments-message">
-            
+
           </div>
         </div>
       </div>

@@ -33,9 +33,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "./img/random-user.png",
     },
-    likes: {
-      type: [String],
-    },
   },
   {
     timestamps: true,
