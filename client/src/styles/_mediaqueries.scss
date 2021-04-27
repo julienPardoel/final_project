@@ -6,17 +6,12 @@
       height: 300px;
     }
   }
-
   .nav-bar-left {
     .partenaire {
       display: none;
     }
   }
-
   .all-sign-list {
-    // ul {
-    //   flex-direction: column;
-    // }
     display: none;
   }
   .all-sign-burger {
@@ -26,16 +21,13 @@
     font-size: 2em;
     i {
       cursor: pointer;
-
     }
   }
-
   .thread-selector {
     h2 {
       font-size: 60%;
     }
   }
-
   .signup {
     .error {
       height: 20px !important;
@@ -54,11 +46,42 @@
     }
   }
   .nav-bar-right {
-      justify-content: space-around !important;
+    justify-content: space-around !important;
   }
   .profil-picture {
-      width: 120px !important;
-      height: 120px !important;
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .big-card-container {
+    .bc-close {
+      top: 72px !important;
+      right: 2px !important;
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 1em !important;
+    }
+    .big-card {
+      width: 90% !important;
+      .bc-movie {
+        .bc-movie-poster {
+          img {
+            width: 50px !important;
+            height: 40% !important;
+          }
+        }
+        .bc-movie-details {
+          .bc-title-vote {
+            font-size: 0.7em;
+          }
+          .bc-date {
+            font-size: 0.6em;
+          }
+          .bc-synopsis {
+            font-size: 0.7em !important;
+          }
+        }
+      }
+    }
   }
 }
 

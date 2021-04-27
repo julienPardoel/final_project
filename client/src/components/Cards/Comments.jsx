@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
 import { dateParser } from "../../components/Utils";
 
 const Comments = ({ movieId }) => {
-  // const usersData = useSelector((state) => state.usersReducer);
 
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
+
+  // const [commenter, setCommenter] = useState("");
+
+  // const [movieId, setMovieId] = useState("");
 
   const [comment, setComment] = useState([]);
 
   const [data, setData] = useState([]);
-  console.log(data);
+  // console.log(data);
 
   const handleComment = async (e) => {
     e.preventDefault();
 
-    axios({
-      methode: "post",
-      url: `${process.env.REACT_APP_API_URL}api/comments/`,
-      data: {
-        message,
-      },
-    });
+  //   axios({
+  //     methode: "post",
+  //     url: `${process.env.REACT_APP_API_URL}api/comments/`,
+  //     data: {
+  //       movieId,
+  //       commenter,
+  //       message,
+  //     },
+  //   });
   };
 
   useEffect(() => {
@@ -41,17 +45,7 @@ const Comments = ({ movieId }) => {
 
   return (
     <div className="comments-container">
-      {/* formulaire d'envoi des messages */}
-      <div className="comments-form">
-        <form onSubmit={handleComment} enctype="application/json">
-          <input
-            type="text"
-            onChange={(e) => setMessage(e.target.value)}
-            name=""
-          />
-          <input type="submit" value="Envoyer" />
-        </form>
-      </div>
+      
       {/* fil des messages */}
       <div className="comments-thread-container">
         {comment.map((comment) => (
@@ -79,6 +73,18 @@ const Comments = ({ movieId }) => {
             </div>
           </div>
         ))}
+      </div>
+      {/* formulaire d'envoi des messages */}
+      <div className="comments-form">
+        <form onSubmit={handleComment} enctype="application/json">
+          <input
+            type="text"
+            // onChange={(e) => setMessage(e.target.value)}
+            name=""
+            className="input-message"
+          />
+          <input className="input-btn" type="submit" value="Send !" />
+        </form>
       </div>
     </div>
   );
