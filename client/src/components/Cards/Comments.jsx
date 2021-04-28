@@ -37,14 +37,16 @@ const Comments = ({ movieId }) => {
   const handleComment = async (e) => {
     e.preventDefault();
       axios({
-        methode: "post",
+        method: "post",
         url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
         data: {
           movieId: movie,
           commenter: commenter._id,
           message: message,
         },
+        
       });
+      console.log("formulaire ok");
   };
 
   // fonction récupération des commentaires du film => ok
