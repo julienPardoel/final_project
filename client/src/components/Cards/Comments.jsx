@@ -4,29 +4,31 @@ import { dateParser } from "../../components/Utils";
 
 const Comments = ({ movieId }) => {
 
-  // const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
+  // console.log(message);
 
-  // const [commenter, setCommenter] = useState("");
+  const [commenter, setCommenter] = useState("");
+  console.log(commenter);
 
   // const [movieId, setMovieId] = useState("");
 
   const [comment, setComment] = useState([]);
 
   const [data, setData] = useState([]);
-  // console.log(data);
+  console.log(data);
 
   const handleComment = async (e) => {
     e.preventDefault();
 
-  //   axios({
-  //     methode: "post",
-  //     url: `${process.env.REACT_APP_API_URL}api/comments/`,
-  //     data: {
-  //       movieId,
-  //       commenter,
-  //       message,
-  //     },
-  //   });
+    axios({
+      methode: "post",
+      url: `${process.env.REACT_APP_API_URL}api/comments/`,
+      data: {
+        movieId,
+        commenter: commenter,
+        message: message
+      },
+    });
   };
 
   useEffect(() => {
@@ -42,6 +44,13 @@ const Comments = ({ movieId }) => {
       setData(res.data);
     });
   }, []);
+
+  useEffect(() => {
+    axios
+    .get(`${process.env.REACT_APP_API_URL}api/user`).then((res) => {
+      setCommenter(res.data)
+    })
+  })
 
   return (
     <div className="comments-container">
@@ -66,7 +75,6 @@ const Comments = ({ movieId }) => {
                 {data.map((user) => {
                   if (user._id === comment.commenter) return user.pseudo;
                 })}
-                {/* {comment.commenter} */}
               </div>
               <div className="comments-message">{comment.message}</div>
               <div className="comments-date">Message posté {dateParser(comment.createdAt)}</div>
@@ -79,7 +87,7 @@ const Comments = ({ movieId }) => {
         <form onSubmit={handleComment} enctype="application/json">
           <input
             type="text"
-            // onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             name=""
             className="input-message"
           />
