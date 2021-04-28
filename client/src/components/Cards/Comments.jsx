@@ -15,7 +15,7 @@ const Comments = ({ movieId }) => {
 
   // je récupère l'utilisateur => ok
   const [commenter, setCommenter] = useState("");
-  console.log(commenter);
+  console.log(commenter._id);
 
   // ------ fin
 
@@ -23,28 +23,28 @@ const Comments = ({ movieId }) => {
 
   // je récupère l'ensemble des commentaires => ok
   const [comment, setComment] = useState([]);
-  console.log(comment);
+  // console.log(comment);
 
   // je récupère l'ensemble des utilisateurs => ok
   const [data, setData] = useState([]);
-  console.log(data);
+  // console.log(data);
 
   // ------ fin
 
   // ------ fonctions ------
 
-  // fonction envoi du formulaire => not ok
+  // fonction envoi du formulaire => NOT OK
   const handleComment = async (e) => {
     e.preventDefault();
-    axios({
-      methode: "post",
-      url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
-      data: {
-        movieId: movie,
-        commenter: commenter._id,
-        message: message,
-      },
-    });
+      axios({
+        methode: "post",
+        url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
+        data: {
+          movieId: movie,
+          commenter: commenter._id,
+          message: message,
+        },
+      });
   };
 
   // fonction récupération des commentaires du film => ok
@@ -117,22 +117,13 @@ const Comments = ({ movieId }) => {
       </div>
       {/* formulaire d'envoi des messages */}
       <div className="comments-form">
-        <form
-          onSubmit={handleComment}
-          // enctype="application/json"
-        >
+        <form onSubmit={handleComment}>
           <input
+            className="input-message"
             type="text"
             onChange={(e) => setMessage(e.target.value)}
-            name=""
-            className="input-message"
           />
-          <input
-            className="input-btn"
-            type="submit"
-            value="Send !"
-            disabled={!setMessage}
-          />
+          <input className="input-btn" type="submit" value="Send !" />
         </form>
       </div>
     </div>
