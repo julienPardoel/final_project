@@ -1,17 +1,17 @@
-// import { GET_COMMENT } from "../actions/comments.actions";
+import { POST_COMMENT } from "../actions/comments.actions";
 
-// const initialState = {};
+const initialState = {};
 
-// export default function commentsReducer(state = initialState, action) {
-//   switch (action.type) {
+export default function commentsReducer(state = initialState, action) {
+  switch (action.type) {
       
-//     // case POST_COMMENT:
-//     //   return action.payload;
+    case POST_COMMENT:
+      return action.payload;
 
-//     case GET_COMMENT:
-//       return action.payload;
+    // case GET_COMMENT:
+    //   return action.payload;
 
-//     default:
-//       return state;
-//   }
-// }
+    default:
+      return state;
+  }
+}

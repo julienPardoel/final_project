@@ -19,6 +19,7 @@ router.get('/logout', authController.logOut);
 router.get('/', authController.getUser);
 
 // vue utilisateurs
+// router.get('/:id', userController.userInfo)
 router.get('/all', userController.getAllUsers);
 
 

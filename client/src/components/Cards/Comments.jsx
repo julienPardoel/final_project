@@ -5,14 +5,13 @@ import { dateParser } from "../../components/Utils";
 const Comments = ({ movieId }) => {
 
   const [message, setMessage] = useState("");
-  // console.log(message);
+  console.log(message);
 
   const [commenter, setCommenter] = useState("");
   console.log(commenter);
 
-  // const [movieId, setMovieId] = useState("");
-
   const [comment, setComment] = useState([]);
+  console.log(comment);
 
   const [data, setData] = useState([]);
   console.log(data);
@@ -22,10 +21,10 @@ const Comments = ({ movieId }) => {
 
     axios({
       methode: "post",
-      url: `${process.env.REACT_APP_API_URL}api/comments/`,
+      url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
       data: {
-        movieId,
-        commenter: commenter,
+        movieId: movieId,
+        commenter: commenter._id,
         message: message
       },
     });
@@ -40,17 +39,19 @@ const Comments = ({ movieId }) => {
   }, []);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}api/user/all`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL}api/user/all`)
+    .then((res) => {
       setData(res.data);
     });
   }, []);
 
   useEffect(() => {
     axios
-    .get(`${process.env.REACT_APP_API_URL}api/user`).then((res) => {
+    .get(`${process.env.REACT_APP_API_URL}api/user/`, {withCredentials: true,})
+    .then((res) => {
       setCommenter(res.data)
-    })
-  })
+    });
+  }, []);
 
   return (
     <div className="comments-container">
@@ -59,7 +60,6 @@ const Comments = ({ movieId }) => {
       <div className="comments-thread-container">
         {comment.map((comment) => (
           <div className="comments-thread" comment={comment}>
-            {console.log(comment)}
             <div className="comments-picture">
               <img
                 src={data
@@ -84,14 +84,16 @@ const Comments = ({ movieId }) => {
       </div>
       {/* formulaire d'envoi des messages */}
       <div className="comments-form">
-        <form onSubmit={handleComment} enctype="application/json">
+        <form onSubmit={handleComment} 
+        // enctype="application/json"
+        >
           <input
             type="text"
             onChange={(e) => setMessage(e.target.value)}
             name=""
             className="input-message"
           />
-          <input className="input-btn" type="submit" value="Send !" />
+          <input className="input-btn" type="submit" value="Send !" disabled={!setMessage} />
         </form>
       </div>
     </div>
