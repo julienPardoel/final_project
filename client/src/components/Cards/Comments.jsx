@@ -33,7 +33,7 @@ const Comments = ({ movieId }) => {
 
   // ------ fonctions ------
 
-  // fonction envoi du formulaire => NOT OK
+  // fonction envoi du formulaire => ok
   const handleComment = async (e) => {
     e.preventDefault();
       axios({
