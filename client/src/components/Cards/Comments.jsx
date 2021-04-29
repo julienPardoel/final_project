@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { dateParser } from "../../components/Utils";
+import { useDispatch } from 'react-redux';
+import { postComment } from "../../actions/comments.actions";
+// import { useSelector } from 'react-redux';
+// import commentsReducer from './../../reducers/comments.reducer';
 
 const Comments = ({ movieId }) => {
+  // ------ test redux ------
+
+  const dispatch = useDispatch();
+  // const commentMovie = useSelector((state) => state.commentsReducer);
+
+  // console.log(getComments);
+
+  // ------ fin du test redux ------
+
   // ------ envoi des données du formulaire ------
 
   // je récupère l'id du film => ok
@@ -17,45 +30,78 @@ const Comments = ({ movieId }) => {
   const [commenter, setCommenter] = useState("");
   console.log(commenter._id);
 
-  // ------ fin
+  // ------ fin ------
 
   // ------récupération et affichage des commentaires ------
 
   // je récupère l'ensemble des commentaires => ok
   const [comment, setComment] = useState([]);
-  // console.log(comment);
+  console.log(comment);
 
   // je récupère l'ensemble des utilisateurs => ok
   const [data, setData] = useState([]);
   // console.log(data);
 
-  // ------ fin
+  // ------ fin ------
 
   // ------ fonctions ------
 
   // fonction envoi du formulaire => ok
   const handleComment = async (e) => {
     e.preventDefault();
-      axios({
-        method: "post",
-        url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
-        data: {
-          movieId: movie,
-          commenter: commenter._id,
-          message: message,
-        },
+
+    // ------ nouvelle methode redux ------
+
+    if(message) {
+      dispatch(postComment(movieId, commenter._id, message))
+      .then(() => setMessage(''));
+    }
+
+    // ------ fin nouvelle methode ------
+
+    // ------ ancienne methode qui n'affichait pas les commentaires à l'envoi du nouveau commentaire ------
+
+      // axios({
+      //   method: "post",
+      //   url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
+      //   data: {
+      //     movieId: movie,
+      //     commenter: commenter._id,
+      //     message: message,
+      //   },
         
-      });
+      // });
+
+    // ------ fin ancienne methode ------
+
       console.log("formulaire ok");
   };
 
   // fonction récupération des commentaires du film => ok
   useEffect(() => {
+
+    // nouvelle methode
+
+    
+      // dispatch(getComments(movieId, commentMovie))
+      // .then((props) => {
+      //   setComment(props)
+      // })
+    
+      
+    
+    
+
+    // ancienne methode qui n'affichait pas les commentaires en temps reel
+
     axios
       .get(`${process.env.REACT_APP_API_URL}api/comments/${movieId}`)
       .then((res) => {
         setComment(res.data);
       });
+
+    // fin ancienne methode
+
   }, []);
 
   // fonction récupération de tout les utilisateurs => ok
