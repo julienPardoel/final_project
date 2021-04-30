@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { dateParser } from "../../components/Utils";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { postComment } from "../../actions/comments.actions";
+
 // import { useSelector } from 'react-redux';
 // import commentsReducer from './../../reducers/comments.reducer';
 
@@ -12,23 +13,23 @@ const Comments = ({ movieId }) => {
   const dispatch = useDispatch();
   // const commentMovie = useSelector((state) => state.commentsReducer);
 
-  // console.log(getComments);
+  // console.log(getComments([]));
 
   // ------ fin du test redux ------
 
   // ------ envoi des données du formulaire ------
 
   // je récupère l'id du film => ok
-  const movie = movieId;
-  console.log(movie);
+  // const movie = movieId;
+  // console.log(movie);
 
   // je recupère la valeur de mon message => ok
   const [message, setMessage] = useState("");
-  console.log(message);
+  // console.log(message);
 
   // je récupère l'utilisateur => ok
   const [commenter, setCommenter] = useState("");
-  console.log(commenter._id);
+  // console.log(commenter._id);
 
   // ------ fin ------
 
@@ -36,7 +37,7 @@ const Comments = ({ movieId }) => {
 
   // je récupère l'ensemble des commentaires => ok
   const [comment, setComment] = useState([]);
-  console.log(comment);
+  // console.log(comment);
 
   // je récupère l'ensemble des utilisateurs => ok
   const [data, setData] = useState([]);
@@ -52,47 +53,41 @@ const Comments = ({ movieId }) => {
 
     // ------ nouvelle methode redux ------
 
-    if(message) {
-      dispatch(postComment(movieId, commenter._id, message))
-      .then(() => setMessage(''));
-    }
+    dispatch(postComment(movieId, commenter._id, message));
+
+    window.location.reload();
+    window.alert("Message envoyé, veuillez cliquer sur Ok");
 
     // ------ fin nouvelle methode ------
 
-    // ------ ancienne methode qui n'affichait pas les commentaires à l'envoi du nouveau commentaire ------
+    // ------ ancienne methode ------
 
-      // axios({
-      //   method: "post",
-      //   url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
-      //   data: {
-      //     movieId: movie,
-      //     commenter: commenter._id,
-      //     message: message,
-      //   },
-        
-      // });
+    // axios({
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_API_URL}api/comments/${movieId}`,
+    //   data: {
+    //     movieId: movie,
+    //     commenter: commenter._id,
+    //     message: message,
+    //   },
+
+    // });
 
     // ------ fin ancienne methode ------
 
-      console.log("formulaire ok");
+    // console.log("formulaire ok");
   };
 
   // fonction récupération des commentaires du film => ok
   useEffect(() => {
+    // ------ nouvelle methode redux ------
 
-    // nouvelle methode
+    // dispatch(getComments(movieId, commenter._id, message));
+    // .then(() => setComment)
 
-    
-      // dispatch(getComments(movieId, commentMovie))
-      // .then((props) => {
-      //   setComment(props)
-      // })
-    
-      
-    
-    
+    // ------ fin nouvelle methode ------
 
-    // ancienne methode qui n'affichait pas les commentaires en temps reel
+    // ------ ancienne methode ------
 
     axios
       .get(`${process.env.REACT_APP_API_URL}api/comments/${movieId}`)
@@ -100,8 +95,7 @@ const Comments = ({ movieId }) => {
         setComment(res.data);
       });
 
-    // fin ancienne methode
-
+    // ------ fin ancienne methode ------
   }, []);
 
   // fonction récupération de tout les utilisateurs => ok
@@ -170,6 +164,8 @@ const Comments = ({ movieId }) => {
             className="input-message"
             type="text"
             onChange={(e) => setMessage(e.target.value)}
+            // onSubmit="this.value=''"
+            // onClick="history.go(0)"
           />
           <input className="input-btn" type="submit" value="Send !" />
         </form>
