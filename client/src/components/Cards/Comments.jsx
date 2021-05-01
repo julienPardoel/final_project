@@ -4,16 +4,15 @@ import { dateParser } from "../../components/Utils";
 import { useDispatch } from "react-redux";
 import { postComment } from "../../actions/comments.actions";
 
-// import { useSelector } from 'react-redux';
+// import { useSelector } from "react-redux";
 // import commentsReducer from './../../reducers/comments.reducer';
+// import { isEmpty } from "./../Utils";
 
 const Comments = ({ movieId }) => {
   // ------ test redux ------
 
   const dispatch = useDispatch();
   // const commentMovie = useSelector((state) => state.commentsReducer);
-
-  // console.log(getComments([]));
 
   // ------ fin du test redux ------
 
@@ -37,6 +36,7 @@ const Comments = ({ movieId }) => {
 
   // je récupère l'ensemble des commentaires => ok
   const [comment, setComment] = useState([]);
+  // const comment = useSelector((state) => state.commentsReducer);
   // console.log(comment);
 
   // je récupère l'ensemble des utilisateurs => ok
@@ -52,11 +52,17 @@ const Comments = ({ movieId }) => {
     e.preventDefault();
 
     // ------ nouvelle methode redux ------
-
-    dispatch(postComment(movieId, commenter._id, message));
-
-    window.location.reload();
-    window.alert("Message envoyé, veuillez cliquer sur Ok");
+    if (message) {
+      dispatch(postComment(movieId, commenter._id, message))
+        .then(() => setMessage(""))
+        .then(() =>
+          axios
+            .get(`${process.env.REACT_APP_API_URL}api/comments/${movieId}`)
+            .then((res) => {
+              setComment(res.data);
+            })
+        );
+    }
 
     // ------ fin nouvelle methode ------
 
@@ -82,8 +88,7 @@ const Comments = ({ movieId }) => {
   useEffect(() => {
     // ------ nouvelle methode redux ------
 
-    // dispatch(getComments(movieId, commenter._id, message));
-    // .then(() => setComment)
+    // dispatch(getComments());
 
     // ------ fin nouvelle methode ------
 
@@ -164,8 +169,7 @@ const Comments = ({ movieId }) => {
             className="input-message"
             type="text"
             onChange={(e) => setMessage(e.target.value)}
-            // onSubmit="this.value=''"
-            // onClick="history.go(0)"
+            value={message}
           />
           <input className="input-btn" type="submit" value="Send !" />
         </form>
