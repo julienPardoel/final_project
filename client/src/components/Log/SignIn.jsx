@@ -62,9 +62,9 @@ const SignIn = () => {
         {/* envoyer */}
         <input className="btn" type="submit" value="Se connecter" />
       </form>
-      <a href="/home" className="back-home">
+      {/* <a href="/home" className="back-home">
         <i class="far fa-times-circle"></i>
-      </a>
+      </a> */}
     </div>
   );
 };

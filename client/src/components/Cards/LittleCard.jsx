@@ -11,6 +11,7 @@ const LittleCard = ({ movie }) => {
   const overview = str.substr(0, 150);
 
   const [showComments, setShowComments] = useState(false);
+  console.log(showComments)
 
   return (
     <div className="little-card">
@@ -41,6 +42,7 @@ const LittleCard = ({ movie }) => {
             </div>
           )}
           {showComments && <BigCard movie={movie}/>}
+          {showComments && <i class="fas fa-times" onClick={() => setShowComments(!showComments)}></i>}
         </div>
       </div>
     </div>

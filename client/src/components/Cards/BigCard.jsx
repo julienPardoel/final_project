@@ -6,11 +6,11 @@ const BigCard = (props) => {
 
   return (
     <div className="big-card-container">
-      <div className="bc-close">
+      {/* <div className="bc-close">
         <a href="/home">
           <i class="fas fa-times"></i>
         </a>
-      </div>
+      </div> */}
       <div className="big-card">
         <div className="bc-movie">
           <div className="bc-movie-poster">

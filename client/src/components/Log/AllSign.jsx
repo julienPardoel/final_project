@@ -34,12 +34,30 @@ const Log = () => {
         </ul>
         {signUpModal && <SignUp />}
         {signInModal && <SignIn />}
+        {signInModal && (
+          <i
+            class="fas fa-times"
+            onClick={() => setSignInModal(!signInModal)}
+          ></i>
+        )}
+        {signUpModal && (
+          <i
+            class="fas fa-times"
+            onClick={() => setSignUpModal(!signUpModal)}
+          ></i>
+        )}
       </div>
 
       <div className="all-sign-burger">
         <i class="fas fa-bars" onClick={handleBurger}></i>
       </div>
       {signUpBurger && <SignUp />}
+      {signUpBurger && (
+        <i
+          class="fas fa-times"
+          onClick={() => setSignUpBurger(!signUpBurger)}
+        ></i>
+      )}
     </div>
   );
 };

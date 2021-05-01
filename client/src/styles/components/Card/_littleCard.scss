@@ -66,4 +66,15 @@
       }
     }
   }
+  .fa-times{
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    color: $color-blue;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .fa-times:hover{
+    text-shadow: $color-pink -1px 1px 1px;
+  }
 }

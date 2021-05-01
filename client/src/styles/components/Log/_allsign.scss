@@ -24,12 +24,16 @@
   .all-sign-burger {
     display: none;
   }
-}
-
-.back-home {
-  position: fixed;
-  top: 120px;
-  font-size: 2em;
-  color: $color-blue;
-  text-shadow: $color-pink -1px 1px 1px;
+  .fa-times {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    color: $color-blue;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 99;
+  }
+  .fa-times:hover {
+    text-shadow: $color-pink -1px 1px 1px;
+  }
 }
