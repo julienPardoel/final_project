@@ -101,13 +101,14 @@ const Comments = ({ movieId }) => {
       });
 
     // ------ fin ancienne methode ------
-  }, []);
+  }, [movieId]);
 
   // fonction récupération de tout les utilisateurs => ok
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}api/user/all`).then((res) => {
-      setData(res.data);
-    });
+    axios.get(`${process.env.REACT_APP_API_URL}api/user/all`)
+    .then((res) => 
+      setData(res.data)
+    )
   }, []);
 
   // fonction récupération d'un seul utilisateur => ok
@@ -138,7 +139,7 @@ const Comments = ({ movieId }) => {
               <img
                 src={data
                   .map((user) => {
-                    if (user._id === comment.commenter) return user.picture;
+                    if (user._id === comment.commenter) { return user.picture } else { return null };
                   })
                   .join("")}
                 alt=""
@@ -149,7 +150,7 @@ const Comments = ({ movieId }) => {
               <div className="comments-pseudo">
                 {/* on map les utilisateurs, si l'id d'un utilisateur est egal à celui du commenter alors on retourne son pseudo */}
                 {data.map((user) => {
-                  if (user._id === comment.commenter) return user.pseudo;
+                  if (user._id === comment.commenter) { return user.pseudo } else { return null };
                 })}
               </div>
               {/* message posté */}

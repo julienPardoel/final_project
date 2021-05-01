@@ -23,7 +23,7 @@ const Thread = () => {
     if (loadMoviePop) {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr&page=1`
+          `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_KEY_API}&language=fr&page=1`
         )
         .then((res) => setMovies(res.data.results));
     }
@@ -38,7 +38,7 @@ const Thread = () => {
     if (loadMovieTop) {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=fd4d4bf6cf58ba27b154b5975554d16a&language=fr&page=1`
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY_API}&language=fr&page=1`
         )
         .then((res) => setMovies(res.data.results));
     }
@@ -49,7 +49,7 @@ const Thread = () => {
     if (loadMovieSearch) {
       axios
         .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=fd4d4bf6cf58ba27b154b5975554d16a&query=${loadMovieSearch}&language=fr`
+          `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_KEY_API}&query=${loadMovieSearch}&language=fr`
         )
         .then((res) => setMovies(res.data.results));
     }

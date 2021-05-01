@@ -26,7 +26,8 @@ const Cgu = () => {
         <div className="cgu">
             {createStar}
             <h2>Sans conditions</h2>
-            <a href="javascript:window.close();">Fermer la fenêtre</a>
+            <p>Vous pouver fermer cet onglet et continuer à utiliser le site</p>
+            {/* <a href="javascript:window.close();">Fermer la fenêtre</a> */}
         </div>
     )
 }
