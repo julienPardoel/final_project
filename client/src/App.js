@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import Routes from "./routes";
-
 import { UidContext } from "./AppContext";
-
 import axios from "axios";
-
 import { useDispatch } from "react-redux";
-
 import { getUser } from "./actions/user.actions";
 
 const App = () => {
   const [uid, setUid] = useState(null);
   const [log, setLog] = useState(false);
-  
   const dispatch = useDispatch();
 
   useEffect(() => {
